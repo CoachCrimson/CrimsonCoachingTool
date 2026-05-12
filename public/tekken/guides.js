@@ -599,12 +599,12 @@ function sectionMovement() {
         <div class="kbd-token">${iconHTML('db', 22)}</div>
         <div class="kbd-arrow">…</div>
       </div>
-      <p class="body sm" style="margin-top: 10px;">The pattern: backdash, return to neutral briefly, then <b>back → diagonal-down-back → back → diagonal-down-back</b> in rhythm. The diagonal-down-back input cancels the backdash recovery, letting you input the next backdash sooner. Each rep moves you another half character-width back.</p>
+      <p class="body sm" style="margin-top: 10px;">The pattern: backdash, return to <span class="neutral">neutral</span> briefly, then <b>back → diagonal-down-back → back → diagonal-down-back</b> in rhythm. The diagonal-down-back input cancels the backdash recovery, letting you input the next backdash sooner. Each rep moves you another half character-width back.</p>
 
       <h4 class="minihead">How to Practice</h4>
       <div class="kbd-drill">
         <div class="kbd-step"><b class="step-num">01</b><div><b>Turn on input display.</b> Training menu → input history visible. You need to see what your hands are actually doing.</div></div>
-        <div class="kbd-step"><b class="step-num">02</b><div><b>Do one clean backdash.</b> Tap ${iconHTML('b', 14)}${iconHTML('b', 14)}. Watch the input log. Two clean back inputs separated by neutral.</div></div>
+        <div class="kbd-step"><b class="step-num">02</b><div><b>Do one clean backdash.</b> Tap ${iconHTML('b', 14)}${iconHTML('b', 14)}. Watch the input log. Two clean back inputs separated by <span class="neutral">neutral</span>.</div></div>
         <div class="kbd-step"><b class="step-num">03</b><div><b>Add the cancel.</b> ${iconHTML('b', 14)} ${iconHTML('db', 14)} ${iconHTML('b', 14)} ${iconHTML('db', 14)}. Slow at first. Don't worry about speed.</div></div>
         <div class="kbd-step"><b class="step-num">04</b><div><b>Five reps slowly, perfectly.</b> Speed comes from consistency. Sloppy fast KBD is worse than slow clean KBD.</div></div>
         <div class="kbd-step"><b class="step-num">05</b><div><b>Increase pace by 10% only when 10/10 are clean.</b> Every session: 5 minutes of KBD drills before anything else.</div></div>

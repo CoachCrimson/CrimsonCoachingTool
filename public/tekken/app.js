@@ -67,9 +67,9 @@ function renderHome() {
     <div class="hero">
       <div class="hero-label">Season 3 · Flame Ruler Playbook</div>
       <h1>TEKKEN 8<br><span class="alt">Beginner's Codex</span></h1>
-      <p class="hero-lede">One stop for everything a new Tekken player needs: fundamentals, wake-up theory, a 90-day path from beginner to Purple, and in-depth guides for Jun, Nina, Miary Zo, and Lili — with inputs in either icon or text notation.</p>
+      <p class="hero-lede">One stop for everything a new Tekken player needs: fundamentals, wake-up theory, a 90-day path from beginner to Purple, and in-depth guides for Jun, Nina, Miary Zo, Lili, and Lidia — with inputs in either icon or text notation.</p>
       <div class="hero-stats">
-        <div class="hero-stat"><div class="n">4</div><div class="l">Character guides</div></div>
+        <div class="hero-stat"><div class="n">5</div><div class="l">Character guides</div></div>
         <div class="hero-stat"><div class="n">7</div><div class="l">Beginner chapters</div></div>
         <div class="hero-stat"><div class="n">90</div><div class="l">Day training plan</div></div>
         <div class="hero-stat"><div class="n">∞</div><div class="l">Okizeme links</div></div>
