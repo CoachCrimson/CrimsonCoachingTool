@@ -8,7 +8,8 @@
 //
 // PORTRAITS: each character has an `image` field. Empty ('') uses a
 // stylized fallback with character accent color. To add a real photo,
-// set image: 'https://...' to a hosted URL. Recommended sources:
+// set image: 'images/<key>.png' for a local file (see images/ folder)
+// or image: 'https://...' for a hosted URL. Recommended sources:
 //   - https://tekken.fandom.com/wiki/<Character>/Gallery (right-click
 //     → Copy image address on any T8 render)
 //   - imgur, your own CDN, etc.
@@ -25,7 +26,7 @@ const CHARACTERS = {
     subtitle: 'The Kazama Bloodline · Counter-Hit Fundamentalist',
     difficulty: 'Medium',
     okizeme: 'jun',
-    image: '',
+    image: 'images/jun.png',
     color: '#ff6b8b',
     accent: '#c9184a',
     tags: ['Stances: GEN · IZU · MIA', 'Counter-Hit Focused', 'Kazama Essence', 'Mid-Range Specialist'],
@@ -664,7 +665,7 @@ const CHARACTERS = {
     subtitle: 'The Silent Assassin · No Stances · Execution Expert',
     difficulty: 'Expert',
     okizeme: 'nina',
-    image: '',
+    image: 'images/nina.png',
     color: '#8fb8ff',
     accent: '#0c3a6b',
     tags: ['Rushdown Specialist', 'Chain Throws', 'SS1 Cancels', 'Range-0 Poker'],
@@ -1301,7 +1302,7 @@ const CHARACTERS = {
     subtitle: 'The Fighting God Reborn · Morengy Rushdown',
     difficulty: 'Easy–Medium',
     okizeme: 'miary-zo',
-    image: '',
+    image: 'images/miary.png',
     color: '#ffb347',
     accent: '#c67818',
     tags: ['Stances: MOR · BAO', 'Rushdown + Pressure', 'Beginner Friendly', 'Wall Carry Queen'],
@@ -2094,7 +2095,7 @@ const CHARACTERS = {
     subtitle: 'The Noble Ballerina · Feisty Rabbit & Dew Glide',
     difficulty: 'Easy–Medium',
     okizeme: 'lili',
-    image: '',
+    image: 'images/lili.png',
     color: '#e8c3e8',
     accent: '#7a4c8a',
     tags: ['Long-Range Pokes', 'Plus-Frame Pressure', 'Feisty Rabbit', 'Dew Glide', 'Mid-Range Specialist'],
@@ -2750,6 +2751,629 @@ const CHARACTERS = {
           <tr><td>Week 6</td><td>Feisty Rabbit heat 50/50. ${mv('b+3,2')} vs ${mv('b+3,3')}. Heat bar regen double-jump.</td></tr>
           <tr><td>Week 7</td><td>Wall combos. ${mv('uf+4,3')} and ${mv('qcf+3')} T! routes.</td></tr>
           <tr><td>Week 8</td><td>Matchup prep. Replay review. Ranked push.</td></tr>
+        </tbody>
+      </table>
+    `,
+  },
+
+  // ================================================================
+  // LIDIA SOBIESKA — Leemishima's Season 3 Guide (TekkenDocs)
+  // ================================================================
+  lidia: {
+    name: 'Lidia Sobieska',
+    subtitle: 'The Polish Prime Minister · Four-Stance Karate Specialist',
+    difficulty: 'Hard',
+    okizeme: 'lidia',
+    image: 'images/lidia.png',
+    color: '#ffca16',
+    accent: '#c89500',
+    tags: ['Stances: HRS · CAT · WLF · HAE', 'Hit-Confirm Heavy', 'Strong Heat Mix', 'Punishment King'],
+
+    overview: () => `
+      <p class="body"><b>Lidia is a stance-heavy karate character</b> with <b>four stances</b>: Horse (HRS), Cat (CAT), Stalking Wolf (WLF), and Heaven and Earth (HAE — heat-only). Leemishima's gameplan philosophy: <b>use one move, hit confirm, and read the opponent's reaction</b>. From natural she transitions into HRS or CAT; from those she can chain into WLF for opponents who respect her.</p>
+
+      <p class="body"><b>Lidia has different levels of heat</b> — the more levels you have, the better the character becomes. <b>Level 3 HAE</b> unlocks signature upgrades: ${mv('HRS.1+2')} becomes a KND with guaranteed follow-ups, ${mv('CAT.4,3+4')} becomes a damage combo, and ${mv('f,F+4,3')} gives a wallsplat that deletes gray health.</p>
+
+      <p class="body">She's complex even by Tekken standards — many motion inputs, four interconnected stances, and risky frames mean she rewards patient hit-confirm play and punishes mashers hard. Her ${mv('f+1+2,3,1+2')} is the best whiff punisher in her arsenal; her ${mv('uf+4')} hopkick crushes lows and launches.</p>
+
+      <h3 class="subhead">Strengths</h3>
+      <div class="mini-card outline-good">
+        <ul>
+          <li><b>Good mix-ups in heat</b> — HAE stance grants stance-based 50/50s and unblockables</li>
+          <li><b>Good damage in heat</b> — Level 3 HAE unlocks combo upgrades and white-bar deletion</li>
+          <li><b>Excellent punishment</b> — i10 with stance, i11 wallsplat plus-on-hit, i14 heat engager, i15 launcher</li>
+          <li><b>Four stances</b> create deep mixups: HRS → WLF chains, CAT → WLF chains, all → HAE in heat</li>
+          <li><b>${mv('f,F+2')} +5 OB</b> auto-stance plus-frame approach tool</li>
+        </ul>
+      </div>
+
+      <h3 class="subhead">Weaknesses</h3>
+      <div class="mini-card outline-bad">
+        <ul>
+          <li><b>Weak tracking</b> — most key moves linear. Only ${mv('df+1')} (left) and ${mv('df+2')} (right) track</li>
+          <li><b>Risky frames</b> — many strings -10 to -14, demands hit-confirm execution</li>
+          <li><b>Stance entry can be challenged</b> on block from auto-transitions</li>
+          <li><b>High execution</b> — motion inputs (qcf, ddff) common throughout her kit</li>
+        </ul>
+      </div>
+
+      <h3 class="subhead">Heat System</h3>
+      <div class="tip-box">
+        <p><b>Lidia's heat is centered on HAE stance and amplified core moves:</b></p>
+        <ul style="margin: 8px 0 0 16px; line-height: 1.7;">
+          <li>${mv('f,F+2')} and ${mv('WR+1')} <b>cannot be countered by power crush or parries</b> in heat</li>
+          <li>Press <b>U</b> from any stance during heat → enter HAE (Heaven and Earth)</li>
+          <li><b>HAE level 3 upgrades</b> (Season 3 NEW):
+            <ul style="margin-top: 4px;">
+              <li>${mv('HRS.1+2')} KND on hit → guaranteed ${mv('d+1+2')} or ${mv('f,F+3')}</li>
+              <li>${mv('CAT.4,3+4')} becomes a combo for more damage</li>
+              <li>${mv('f,F+4,3')} gives wallsplat + deletes gray health</li>
+            </ul>
+          </li>
+          <li>${mv('HAE.1')} mid launcher with PC property — i18, +80a on hit</li>
+          <li>${mv('HAE.2')} mid +6 OB — cheap damage staple</li>
+          <li>${mv('HAE.1+2')} unblockable homing high — mix-up with HAE.2</li>
+        </ul>
+      </div>
+
+      <div class="tip-box"><b>Playstyle summary (Leemishima):</b> Use one move at a time, hit-confirm, react to opponent. Spam ${mv('df+2')} and hold back to confirm CH → ${mv('CAT.3')}. Use ${mv('f,F+2')} for safe approach (+5 OB). Hit-confirm strings or you eat counter-hit launches. In heat, build HAE charge → unlock 50/50 mixups.</div>
+    `,
+
+    punishers: () => `
+      <h3 class="subhead">Standing Punishers</h3>
+      ${fd('lidia', [
+        { cmd: '1,2,2', level: 'h,h,h', startup: 'i10', dmg: '5,8,15', block: '-9', hit: '+5a', ch: '', notes: 'i10 punish with stance transition (CAT). Use for stance follow-up.' },
+        { cmd: '2,2', level: 'h,h', startup: 'i11', dmg: '10,18', block: '-5', hit: '+24a', ch: '', notes: 'i11 wallsplat super-plus-on-hit punish.' },
+        { cmd: 'f+2,4', level: 'h,h', startup: 'i12', dmg: '12,18', block: '-9', hit: '+22a', ch: '', notes: 'i12 with good range, wallsplats.' },
+        { cmd: 'df+1,2', level: 'm,h', startup: 'i13', dmg: '10,14', block: '-7', hit: '+8', ch: '', notes: 'i13 mid-high natural combo.' },
+        { cmd: 'f+1+2,3,1+2', level: 'h,m,m', startup: 'i14', dmg: '8,10,20', block: '-9', hit: '+24a (+15)', ch: '', props: ['heat'], notes: 'i14 with great range. HEAT ENGAGER.' },
+        { cmd: '3,2', level: 'h,h', startup: 'i15', dmg: '15,20', block: '-13', hit: '+24a', ch: '', notes: 'i15 max-damage high-high. Big reward.' },
+        { cmd: 'uf+4', level: 'm,h', startup: 'i15', dmg: '20,15', block: '-5', hit: '+69a (+53)', ch: '', notes: 'Hopkick — i15 mid launcher. Low-crushes.' },
+      ])}
+
+      <h3 class="subhead">While-Standing Punishers</h3>
+      ${fd('lidia', [
+        { cmd: 'FC.d+1', level: 'SL', startup: 'i10', dmg: '8', block: '-7', hit: '+4', ch: '', notes: 'Downjab from crouch. Fast.' },
+        { cmd: 'ws4,2', level: 'm,m', startup: 'i11', dmg: '14,16', block: '-6', hit: '+5a', ch: '', notes: 'Auto-stance transition.' },
+        { cmd: 'FC.df+2', level: 'm', startup: 'i12', dmg: '20', block: '-9', hit: '+25a', ch: '', props: ['heat'], notes: 'Heat engager, wallsplats, great range. Best WS HE punish.' },
+        { cmd: 'ws1,4', level: 'm,h', startup: 'i13', dmg: '12,18', block: '-9', hit: '+22a', ch: '', notes: 'Wallsplat.' },
+        { cmd: 'ws3', level: 'm', startup: 'i14', dmg: '18', block: '-12', hit: '+22a', ch: '', notes: 'Combo with f,f+1+2 or d+2.' },
+        { cmd: 'ws2', level: 'm', startup: 'i15', dmg: '20', block: '-13', hit: '+32a', ch: '', notes: 'Launcher with great range.' },
+      ])}
+
+      <h3 class="subhead">Whiff Punishers</h3>
+      ${fd('lidia', [
+        { cmd: '1,2,2', level: 'h,h,h', startup: 'i10', dmg: '5,8,15', block: '-9', hit: '+5a', ch: '', notes: 'Fast punisher.' },
+        { cmd: 'f+2,4', level: 'h,h', startup: 'i12', dmg: '12,18', block: '-9', hit: '+22a', ch: '', notes: 'Range punisher.' },
+        { cmd: 'f+1+2,3,1+2', level: 'h,m,m', startup: 'i14', dmg: '8,10,20', block: '-9', hit: '+24a', ch: '', props: ['heat'], notes: 'BEST whiff punisher — range + HE.' },
+        { cmd: '3,2', level: 'h,h', startup: 'i15', dmg: '15,20', block: '-13', hit: '+24a', ch: '', notes: 'Max damage whiff punish.' },
+      ])}
+    `,
+
+    moves: () => `
+      <p class="body">Leemishima's <b>Top 10 Moves</b> for Lidia — the buttons that define her hit-confirm gameplan.</p>
+
+      <h3 class="subhead">1 · ${mv('b+1')} — Plus-Frame Heat Engager Mid</h3>
+      <p class="body">18f mid, <b>+2 OB</b>. Heat engager with <b>no tracking</b>. Wallsplats. Great in okizeme situations. One of her best pressure tools.</p>
+      <p class="body sm"><span class="code">m · i18 · +2 OB · +22c OH</span></p>
+
+      <h3 class="subhead">2 · ${mv('df+1')} — Tracking-Left Mid Check</h3>
+      <p class="body">13f mid with follow-ups. <b>Tracks to the left</b> — paired with df+2 (tracks right) covers both axes. ${mv('df+1,2')} is mid-high natural combo. ${mv('df+1,3')}'s second hit is a CH launcher. Core poke.</p>
+      <p class="body sm"><span class="code">m · i13 · -5 OB · +2 OH</span></p>
+
+      <h3 class="subhead">3 · ${mv('df+2')} — Tracking-Right Auto-Stance Mid</h3>
+      <p class="body">15f mid that <b>automatically goes into CAT stance</b>. Tracks to the right. Leemishima's pro tip: <b>spam ${mv('df+2')} and hold back</b> → if it hits on CH, hit-confirm with ${mv('CAT.3')}.</p>
+      <p class="body sm"><span class="code">m · i15 · +0 OB · +11 OH · +14 (+24g) oCH</span></p>
+
+      <h3 class="subhead">4 · ${mv('df+3')} — Mid with CH Combo Ender</h3>
+      <p class="body">14f mid. ${mv('df+3,4')} is mid-mid natural combo on counter hit. The second hit guarantees ${mv('f,F+1+2')} or ${mv('d+2')} on hit.</p>
+      <p class="body sm"><span class="code">m · i14~15 · -8 OB · +5 OH</span></p>
+
+      <h3 class="subhead">5 · ${mv('f,F+2')} / ${mv('WR+2')} — Approach Plus-Mid</h3>
+      <p class="body">13f mid, <b>+5 OB</b>. Auto-transitions to stance. <b>In heat</b>, NH gives natural combo with ${mv('HRS.1')} or ${mv('HRS.2')}. CH followup combo with HRS.1 or HRS.2 always. Learn both options and the differences.</p>
+      <p class="body sm"><span class="code">m · i13 · +5 OB · +15g OH · +17 oCH</span></p>
+
+      <h3 class="subhead">6 · ${mv('db+3')} — Homing Low</h3>
+      <p class="body">16f low <b>homing</b>. Hits grounded. Launch-punishable on block (-11). +7 on hit, forces crouch. CH KND → mix-up with ${mv('db+3+4')} or block.</p>
+      <p class="body sm"><span class="code">L · i16~17 · -11 OB · +7c OH</span></p>
+
+      <h3 class="subhead">7 · ${mv('db+3+4')} — Auto Low Parry Mid</h3>
+      <p class="body">22f mid, -3 OB. <b>Auto low-parries</b> → combo with ${mv('f,F+1+2')}. Great okizeme tool against opponents who mash lows on wake-up.</p>
+      <p class="body sm"><span class="code">m · i22 · -3 OB · +5 OH</span></p>
+
+      <h3 class="subhead">8 · ${mv('WR+1')} — Wallsplat Knockdown High</h3>
+      <p class="body">13f high, <b>+6 OB</b>. Wallsplats and KND. <b>In heat, auto-transitions to HAE stance with combo</b>. Heat WR+1 NH → ${mv('HAE.1')} → ${mv('d+1+2')}. On block it's a mix-up; cancel stance with hold-back into ${mv('f,F+1+2')} combo.</p>
+      <p class="body sm"><span class="code">h · i13~15 · +6 OB · +24a (+19) OH</span></p>
+
+      <h3 class="subhead">9 · ${mv('d+2')} — Safer Low</h3>
+      <p class="body">18f low. <b>High-crushes</b> and hits grounded. -14 OB. CH combo with ${mv('FC.df+2')}. Use this as a safer alternative to ${mv('db+3')}.</p>
+      <p class="body sm"><span class="code">L · i18 · -14 OB · -4 OH · +12 oCH</span></p>
+
+      <h3 class="subhead">10 · ${mv('f+1+2')} — Whiff Punisher / Heat Activator</h3>
+      <p class="body">14f high with follow-ups. Great whiff punisher and a primary way to activate heat. Amazing heat dash combo with ${mv('f,F+1+2')} or ${mv('d+1+2')}.</p>
+      <p class="body sm"><span class="code">h,m · i14 · -10 OB · +1 OH</span></p>
+
+      <h3 class="subhead">Notable Supplementary Moves</h3>
+
+      <h4 class="minihead">${mv('2,4')} — Safe Combo Jab</h4>
+      <p class="body sm">11f high-mid. Combo on hit and SAFE on block. -8 OB / +4 OH. Great frame trap follow-up after b+1.</p>
+
+      <h4 class="minihead">${mv('qcf+4')} — Best Homing</h4>
+      <p class="body sm">High homing, <b>+5 OB</b>, +17 OH. Combo with HRS.1 or HRS.2 on hit. Lidia's best homing tool.</p>
+      <p class="body sm"><span class="code">h · i17~19 · +5 OB · +17 OH</span></p>
+
+      <h4 class="minihead">${mv('db+1+2')} — Mid with Follow-up Mix</h4>
+      <p class="body sm">16f mid with extension options. Press 2 for combo (35 dmg, +24 OH). <b>Hold 2 for +8 OB</b> on hit KND, combo with ${mv('WLF.1')} or ${mv('WLF.2')}. Second hit is also CH launcher.</p>
+    `,
+
+    framedata: () => `
+      <div class="section-head"><h3 class="subhead">Complete Frame Data Reference — Lidia Sobieska</h3></div>
+      <p class="body">Full frame data from TekkenDocs Season 3 (v3.00.02). Click any command for video on okizeme.gg.</p>
+
+      <h3 class="subhead">Jabs &amp; Core Strings</h3>
+      ${fd('lidia', [
+        { cmd: '1', level: 'h', startup: 'i10', dmg: '5', block: '+1', hit: '+8', ch: '', notes: 'Jab.' },
+        { cmd: '1,2', level: 'h,h', startup: 'i10', dmg: '5,8', block: '-1', hit: '+8', ch: '', notes: 'Jab string.' },
+        { cmd: '1,2,2', level: 'h,h,h', startup: 'i10', dmg: '5,8,15', block: '-9', hit: '+5a', ch: '', notes: 'i10 punish with CAT transition.' },
+        { cmd: '2', level: 'h', startup: 'i11', dmg: '10', block: '-2', hit: '+8', ch: '', notes: 'Standing i11 jab.' },
+        { cmd: '2,2', level: 'h,h', startup: 'i11', dmg: '10,18', block: '-5', hit: '+24a', ch: '', notes: 'Wallsplat super-plus-on-hit.' },
+        { cmd: '2,4', level: 'h,m', startup: 'i11', dmg: '10,14', block: '-8', hit: '+4', ch: '', notes: 'Safe combo jab string.' },
+        { cmd: '3', level: 'h', startup: 'i14', dmg: '14', block: '-3', hit: '+5', ch: '', notes: 'i14 high.' },
+        { cmd: '3,2', level: 'h,h', startup: 'i15', dmg: '15,20', block: '-13', hit: '+24a', ch: '', notes: 'Max damage i15 punish.' },
+        { cmd: '4', level: 'h', startup: 'i12', dmg: '14', block: '-9', hit: '+4', ch: '', notes: 'i12 high.' },
+      ])}
+
+      <h3 class="subhead">Pokes &amp; Mids</h3>
+      ${fd('lidia', [
+        { cmd: 'df+1', level: 'm', startup: 'i13', dmg: '10', block: '-5', hit: '+2', ch: '', notes: 'Tracks LEFT. Core mid check.' },
+        { cmd: 'df+1,2', level: 'm,h', startup: 'i13', dmg: '10,14', block: '-7', hit: '+8', ch: '', notes: 'Natural combo mid-high.' },
+        { cmd: 'df+1,3', level: 'm,m', startup: 'i13', dmg: '10,14', block: '-12', hit: '+22a', ch: '+40a', notes: '2nd hit CH launcher.' },
+        { cmd: 'df+2', level: 'm', startup: 'i15', dmg: '14', block: '+0', hit: '+11', ch: '+14 (+24g)', notes: 'Tracks RIGHT. Auto CAT stance. Hold back, react to CH with CAT.3.' },
+        { cmd: 'df+3', level: 'm', startup: 'i14', dmg: '14', block: '-8', hit: '+5', ch: '', notes: 'Mid with extension.' },
+        { cmd: 'df+3,4', level: 'm,m', startup: 'i14', dmg: '14,16', block: '-12', hit: '+22a', ch: 'natural', notes: 'CH natural combo. 2nd hit → f,F+1+2 or d+2 guaranteed.' },
+        { cmd: 'df+4', level: 'm', startup: 'i17', dmg: '20', block: '-12', hit: '+5', ch: '', notes: 'Mid.' },
+        { cmd: 'df+4,2', level: 'm,m', startup: 'i17', dmg: '20,16', block: '-13', hit: '+45a', ch: '', props: ['tornado'], notes: 'Tornado launcher T!. Combo enders.' },
+        { cmd: 'b+1', level: 'm', startup: 'i18', dmg: '20', block: '+2', hit: '+22c', ch: '', props: ['heat'], notes: '+2 OB HE. Wallsplats. No tracking.' },
+        { cmd: 'b+2', level: 'h', startup: 'i14', dmg: '14', block: '-9', hit: '+4', ch: '', notes: 'High lead.' },
+        { cmd: 'b+2,3', level: 'h,h', startup: 'i14', dmg: '14,16', block: '-13', hit: '+22a', ch: '', notes: 'Combo extension.' },
+        { cmd: 'b+3,4', level: 'm,h', startup: 'i18', dmg: '18,20', block: '-13', hit: 'KND', ch: '', notes: 'Combo filler / wall combo staple.' },
+        { cmd: 'b+4', level: 'h', startup: 'i15', dmg: '20', block: '-13', hit: '+27a', ch: '+47a', notes: 'CH launcher.' },
+        { cmd: 'f+2,4', level: 'h,h', startup: 'i12', dmg: '12,18', block: '-9', hit: '+22a', ch: '', notes: 'i12 wallsplat punisher.' },
+        { cmd: 'f+1+2', level: 'h,m', startup: 'i14', dmg: '8,10', block: '-10', hit: '+1', ch: '', notes: 'Whiff punish / heat activator.' },
+        { cmd: 'f+1+2,3', level: 'h,m,m', startup: 'i14', dmg: '8,10,12', block: '-7', hit: '+8', ch: '', notes: 'String extension.' },
+        { cmd: 'f+1+2,3,1+2', level: 'h,m,m', startup: 'i14', dmg: '8,10,20', block: '-9', hit: '+24a (+15)', ch: '', props: ['heat'], notes: 'BEST whiff punisher. HE.' },
+        { cmd: 'f+3+4', level: 'm', startup: 'i19', dmg: '16', block: '-13', hit: '+16 HRS', ch: '', notes: 'Auto HRS stance entry.' },
+        { cmd: 'f+4,3,4', level: 'm,m,h', startup: 'i17', dmg: '14,12,18', block: '-9', hit: 'KND', ch: '', notes: 'Combo string ender.' },
+        { cmd: 'uf+3', level: 'm', startup: 'i17', dmg: '20', block: '-13', hit: '+22a', ch: '', props: ['floorbreak'], notes: 'Floor break ender.' },
+        { cmd: 'uf+4', level: 'm,h', startup: 'i15', dmg: '20,15', block: '-5', hit: '+69a (+53)', ch: '', notes: 'Hopkick launcher. Low-crushes.' },
+      ])}
+
+      <h3 class="subhead">Lows</h3>
+      ${fd('lidia', [
+        { cmd: 'db+3', level: 'L', startup: 'i16', dmg: '14', block: '-11', hit: '+7c', ch: 'KND', props: ['homing'], notes: 'Homing low. Hits grounded.' },
+        { cmd: 'db+3+4', level: 'm', startup: 'i22', dmg: '20', block: '-3', hit: '+5', ch: '', notes: 'Auto low parry mid. f,F+1+2 on parry.' },
+        { cmd: 'd+1', level: 'SL', startup: 'i17', dmg: '10', block: '-7', hit: '+4', ch: '', props: ['floorbreak'], notes: 'Downjab. Floor break ender.' },
+        { cmd: 'd+2', level: 'L', startup: 'i18', dmg: '18', block: '-14', hit: '-4', ch: '+12', notes: 'High-crushes. Hits grounded. Safer than db+3.' },
+        { cmd: 'db+2', level: 'M', startup: 'i20', dmg: '20', block: '-13', hit: '+22a', ch: '', notes: 'Combo filler.' },
+        { cmd: 'db+1+2', level: 'm', startup: 'i16', dmg: '20', block: '-3', hit: '+24 KND', ch: '+44a', notes: '+8 OB if hold 2. CH launcher 2nd hit.' },
+        { cmd: 'FC.df+2', level: 'm', startup: 'i12', dmg: '20', block: '-9', hit: '+25a', ch: '', props: ['heat'], notes: 'Best WS HE. Wallsplats. Great range.' },
+        { cmd: 'd+1+2', level: 'M', startup: 'i21', dmg: '25', block: '-13', hit: '+35a (+25)', ch: '', props: ['tornado'], notes: 'Tornado spike ender.' },
+      ])}
+
+      <h3 class="subhead">Crouch Dash / qcf / Running</h3>
+      ${fd('lidia', [
+        { cmd: 'f,F+1', level: 'm', startup: 'i15', dmg: '18', block: '-9', hit: '+5', ch: '', notes: 'Running mid.' },
+        { cmd: 'f,F+2', level: 'm', startup: 'i13', dmg: '18', block: '+5', hit: '+15g HRS', ch: '+17 HRS', notes: '+5 OB auto-HRS. Heat = natural combo.' },
+        { cmd: 'f,F+3', level: 'm', startup: 'i18', dmg: '24', block: '-9', hit: '+15a', ch: '', notes: 'Running spike.' },
+        { cmd: 'f,F+1+2', level: 'm,m', startup: 'i15', dmg: '15,18', block: '-13', hit: '+25a', ch: '', notes: 'Combo filler. CH ff+1+2 clean hit = more damage.' },
+        { cmd: 'f,F+4,3', level: 'L,h', startup: 'i20', dmg: '18,20', block: '-12', hit: 'KND', ch: '', props: ['heat'], notes: 'Heat lvl 3: wallsplat + delete gray health.' },
+        { cmd: 'WR+1', level: 'h', startup: 'i13', dmg: '20', block: '+6', hit: '+24a (+19)', ch: '', notes: 'Wallsplat + KND. Heat: auto-HAE + combo.' },
+        { cmd: 'qcf+1+2', level: 'm', startup: 'i17', dmg: '20', block: '-9', hit: '+24a', ch: '', notes: 'Combo move.' },
+        { cmd: 'qcf+1+2,2', level: 'm,m', startup: 'i17', dmg: '20,15', block: '-9', hit: '+30a', ch: '', props: ['tornado'], notes: 'T! ender common in combos.' },
+        { cmd: 'qcf+2,2,1+2', level: 'm,m,m', startup: 'i17', dmg: '15,15,20', block: '-13', hit: 'KND', ch: '', notes: 'Wall combo ender.' },
+        { cmd: 'qcf+4', level: 'h', startup: 'i17', dmg: '18', block: '+5', hit: '+17', ch: '', props: ['homing'], notes: 'Best homing. +5 OB.' },
+        { cmd: 'b,fF+1+2', level: 'm', startup: 'i22', dmg: '30', block: '-13', hit: 'KND', ch: '', props: ['wallbreak', 'balconybreak'], notes: 'Wall break / balcony break combo ender.' },
+        { cmd: 'ws1,4', level: 'm,h', startup: 'i13', dmg: '12,18', block: '-9', hit: '+22a', ch: '', notes: 'WS wallsplat.' },
+        { cmd: 'ws2', level: 'm', startup: 'i15', dmg: '20', block: '-13', hit: '+32a', ch: '', notes: 'WS launcher.' },
+        { cmd: 'ws3', level: 'm', startup: 'i14', dmg: '18', block: '-12', hit: '+22a', ch: '', notes: 'WS knockdown.' },
+        { cmd: 'ws4,2', level: 'm,m', startup: 'i11', dmg: '14,16', block: '-6', hit: '+5a', ch: '', notes: '11f auto-stance WS.' },
+      ])}
+
+      <h3 class="subhead">HRS (Horse Stance)</h3>
+      ${fd('lidia', [
+        { cmd: 'HRS.1', level: 'h', startup: 'i17', dmg: '20', block: '+1', hit: '+16g', ch: '', props: ['powercrush'], notes: 'High PC wallsplat. Really plus on hit. Hit-confirm before pressing.' },
+        { cmd: 'HRS.2', level: 'm,t', startup: 'i16', dmg: '20', block: '-10', hit: '+8', ch: '', props: ['heat'], notes: 'HE. Auto-HAE or hold-back cancel.' },
+        { cmd: 'HRS.3', level: 'm', startup: 'i22', dmg: '20', block: '-4', hit: '+14', ch: '', props: ['homing'], notes: 'Homing anti-low-jab option. Combo with f1+2/ff2/f24.' },
+        { cmd: 'HRS.4', level: 'm', startup: 'i28', dmg: '30', block: '+8', hit: '+22d WLF', ch: '+44a', notes: '+8 OB auto-WLF. Best follow-up: WLF.2.' },
+        { cmd: 'HRS.1+2', level: 'L', startup: 'i20', dmg: '20', block: '-18', hit: '-1c', ch: '+67a (+51)', notes: 'Low CH launcher. High crush. Heat lvl 3: NH KND with guaranteed follow.' },
+      ])}
+
+      <h3 class="subhead">CAT (Cat Stance)</h3>
+      ${fd('lidia', [
+        { cmd: 'CAT.1', level: 'm', startup: 'i17', dmg: '15', block: '-4', hit: '+18a (+9)', ch: '+38a', notes: 'Safe mid. CH combo with f,F+1+2.' },
+        { cmd: 'CAT.2', level: 'h', startup: 'i14', dmg: '15', block: '-10', hit: '+1', ch: '', notes: 'High lead.' },
+        { cmd: 'CAT.2,3', level: 'h,h', startup: 'i14', dmg: '15,16', block: '-7', hit: '+5', ch: '', notes: 'Delayable extension.' },
+        { cmd: 'CAT.2,3,1', level: 'h,h,h', startup: 'i14', dmg: '15,16,20', block: '-13', hit: '+25a', ch: '', notes: 'Full delayable string.' },
+        { cmd: 'CAT.3', level: 'h', startup: 'i13', dmg: '18', block: '-4', hit: '+11g', ch: '', props: ['heat'], notes: 'Fastest CAT. HE. Hit-confirm tool for df+2 CH.' },
+        { cmd: 'CAT.4', level: 'L', startup: 'i19', dmg: '18', block: '-6', hit: '+8c', ch: '+33a', notes: 'CH launcher low. High crush. Heat: HAE makes it safe.' },
+        { cmd: 'CAT.4,3+4', level: 'L,m', startup: 'i19', dmg: '18,15', block: '-9', hit: '+15a', ch: '', notes: 'Heat lvl 3: becomes combo for more damage.' },
+        { cmd: 'CAT.1+2', level: 'm', startup: 'i16', dmg: '22', block: '-1', hit: '+27g', ch: '+37 (+29)', props: ['homing'], notes: 'BEST CAT MOVE. Tracks.' },
+      ])}
+
+      <h3 class="subhead">WLF (Stalking Wolf)</h3>
+      ${fd('lidia', [
+        { cmd: 'WLF.1', level: 'm', startup: 'i22~36', dmg: '20', block: '+2', hit: '+30a (+22)', ch: '', notes: '+2 OB. Hold for launcher + more plus.' },
+        { cmd: 'WLF.2', level: 'M', startup: 'i15', dmg: '20', block: '-7', hit: '+22a (+5)', ch: '+22a', notes: 'BEST WLF MOVE. Fast wallsplat safe.' },
+        { cmd: 'WLF.3', level: 'm', startup: 'i17', dmg: '18', block: '-6', hit: '+4', ch: '', notes: 'Safe extension.' },
+        { cmd: 'WLF.3,1', level: 'm,m', startup: 'i17', dmg: '18,20', block: '-9', hit: 'CH combo', ch: '', notes: 'Both safe mids, CH combo.' },
+        { cmd: 'WLF.4', level: 'L,M', startup: 'i20', dmg: '15,18', block: '-14c', hit: '+5c', ch: '', notes: 'Low option. -14 OB.' },
+      ])}
+
+      <h3 class="subhead">HAE (Heaven and Earth — Heat Only)</h3>
+      ${fd('lidia', [
+        { cmd: 'HAE.1', level: 'm', startup: 'i18', dmg: '25', block: '-11', hit: '+80a (+60)', ch: '', props: ['powercrush'], notes: 'PC mid launcher. Heat-only.' },
+        { cmd: 'HAE.2', level: 'm,m', startup: 'i13', dmg: '12,15', block: '+6', hit: '+14a', ch: '', notes: '+6 OB. Best cheap damage HAE move.' },
+        { cmd: 'HAE.1+2', level: 'h!', startup: 'i16', dmg: '40', block: 'unblockable', hit: '+0a', ch: '', props: ['homing'], notes: 'Unblockable homing high. Mix-up with HAE.2.' },
+      ])}
+
+      <h3 class="subhead">Panic, Power Crush, Rage &amp; Heat Smash</h3>
+      ${fd('lidia', [
+        { cmd: 'b+1+2', level: 'm', startup: 'i20', dmg: '25', block: '-13', hit: '+11a (+2)', ch: '', props: ['powercrush'], notes: 'PC mid.' },
+        { cmd: 'b+2+4', level: '', startup: 'i4', dmg: '0', block: '—', hit: 'parry', ch: '', notes: 'Parry. Punches.' },
+        { cmd: 'b+1+3', level: '', startup: 'i4', dmg: '0', block: '—', hit: 'parry', ch: '', notes: 'Parry. Kicks.' },
+        { cmd: '1+3', level: 't', startup: 'i12', dmg: '35', block: '—', hit: 'throw', ch: '', notes: 'Left throw. Break 1.' },
+        { cmd: '2+4', level: 't', startup: 'i12', dmg: '35', block: '—', hit: 'throw', ch: '', notes: 'Right throw. Break 2.' },
+        { cmd: 'R.df+1+2', level: 'm,t', startup: 'i20', dmg: '55+', block: '-18', hit: '+0d', ch: '', props: ['powercrush'], notes: 'Rage Art.' },
+        { cmd: 'H.2+3', level: 'm', startup: 'i16', dmg: '55', block: '+0', hit: 'KND', ch: '', notes: 'Heat Smash.' },
+      ])}
+    `,
+
+    combos: () => `
+      <h3 class="subhead">Bread-and-Butter Combo Routes</h3>
+      <p class="body">Leemishima's optimal skeleton: launcher → ${mv('f,F+2')} → HRS.${mv('2')} → ${mv('db+2')} → ${mv('qcf+1+2,2')} T! → cancel stance (hold b) → ${mv('b+3,4')} → ${mv('qcf+1+2')} or ${mv('qcf+2,2,1+2')}.</p>
+
+      <h3 class="subhead">Optimal Combos</h3>
+      <table class="data">
+        <thead><tr><th style="width: 22%">Starter</th><th>Route</th></tr></thead>
+        <tbody>
+          <tr><td>${mv('uf+4')}</td><td class="route">hold b to cancel stance → ${mv('f,F+2')} → HRS.${mv('2')} → ${mv('qcf+2,2,1+2')}</td></tr>
+          <tr><td>${mv('ws2')}</td><td class="route">${mv('f,F+2')} → HRS.${mv('2')} → ${mv('db+2')} → ${mv('qcf+1+2,2')} ${prop('tornado', 14)} → cancel stance (hold b) → ${mv('b+3,4')} → ${mv('qcf+1+2')}</td></tr>
+          <tr><td>${mv('3,2')}</td><td class="route">${mv('f+3+4')} → hold f → WLF.${mv('2')} → ${mv('f,F+2')} → ${mv('2')} → ${mv('qcf+1+2,2')} ${prop('tornado', 14)} → ${mv('b+3,4')} → ${mv('qcf+1+2')}</td></tr>
+          <tr><td>CH ${mv('df+1,3')}</td><td class="route">${mv('df+2')} → CAT.${mv('4')} → WLF.${mv('2')} → ${mv('qcf+1+2,2')} ${prop('tornado', 14)} → WLF.${mv('B')} → ${mv('df+4,2')} → ${mv('qcf+1+2,2')} → ${mv('b,fF+1+2')}</td></tr>
+          <tr><td>Heat + Rage ${mv('f,F+3')}</td><td class="route">${mv('b+2,3')} → ${mv('df+2')} → CAT.${mv('3,F')} → ${mv('b+2,3')} → ${mv('df+4,3')} → ${mv('df+1+2')}</td></tr>
+        </tbody>
+      </table>
+
+      <h3 class="subhead">Beginner Combos</h3>
+      <table class="data">
+        <thead><tr><th style="width: 22%">Starter</th><th>Route</th></tr></thead>
+        <tbody>
+          <tr><td>${mv('uf+4')}</td><td class="route">${mv('f+2')} → ${mv('2')} → ${mv('b+3,4')} → ${mv('qcf+1+2')}</td></tr>
+          <tr><td>${mv('ws2')}</td><td class="route">${mv('df+2')} → ${mv('4')} → WLF.${mv('2')} → ${mv('df+4,2')} ${prop('tornado', 14)} → ${mv('b+3,4')} → ${mv('qcf+1+2')}</td></tr>
+          <tr><td>Low parry</td><td class="route">${mv('f,F+2')} → ${mv('2')} → ${mv('1')} → ${mv('b+3,4')} → ${mv('qcf+1+2')}</td></tr>
+          <tr><td>${mv('3,2')}</td><td class="route">${mv('f,F+2')} → ${mv('2')} → ${mv('df+4,2')} ${prop('tornado', 14)} → ${mv('b+3,4')} → ${mv('qcf+1+2')}</td></tr>
+        </tbody>
+      </table>
+
+      <h3 class="subhead">Combo Enders</h3>
+      <h4 class="minihead">Carry</h4>
+      <p class="body">${cmd('lidia','2,2')}</p>
+      <h4 class="minihead">Floor break <span class="props-inline">${prop('floorbreak', 14)}</span></h4>
+      <p class="body">${cmd('lidia','d+1')} · ${cmd('lidia','uf+3')}</p>
+      <h4 class="minihead">Wall break <span class="props-inline">${prop('wallbreak', 14)}</span></h4>
+      <p class="body">${cmd('lidia','b+1')} · ${cmd('lidia','WR+1')}</p>
+
+      <h3 class="subhead">Wall Combos</h3>
+      <h4 class="minihead">Without Tornado</h4>
+      <p class="body">${mv('f+1+2,3')} → ${mv('qcf+1+2')} · ${mv('qcf+2,2')} (delay) ${mv('1+2')}</p>
+      <h4 class="minihead">With Tornado <span class="props-inline">${prop('tornado', 14)}</span></h4>
+      <p class="body">${mv('f+4,3,4')} ${prop('tornado', 14)} → ${mv('f+1+2,3')} → ${mv('qcf+1+2')} · ${mv('df+4,2')} ${prop('tornado', 14)} → ${mv('qcf+2,2,1+2')}</p>
+
+      <h3 class="subhead">Small Combos</h3>
+      <div style="padding: 6px 0; border-bottom: 1px solid var(--border);"><b style="color: var(--accent-warm); font-family: var(--frame); display: inline-block; min-width: 200px;">${mv('df+4,2')}</b> <span style="color: var(--text-dim)">→</span> ${mv('d+1+2')}</div>
+      <div style="padding: 6px 0;"><b style="color: var(--accent-warm); font-family: var(--frame); display: inline-block; min-width: 200px;">CH ${mv('b+4')}</b> <span style="color: var(--text-dim)">→</span> ${mv('f,F+3')}</div>
+    `,
+
+    stances: () => `
+      <h3 class="subhead">The Four Stances — Detailed Breakdown</h3>
+      <p class="body">Lidia has 4 interconnected stances. From natural: <b>HRS (Horse)</b> and <b>CAT (Cat)</b>. From HRS or CAT: <b>WLF (Stalking Wolf)</b>. In heat: <b>HAE (Heaven and Earth)</b> via U-press from any stance.</p>
+
+      <h3 class="subhead">HRS — Horse Stance (Most Important)</h3>
+      <div class="card">
+        <p class="body"><b>Enter via:</b> ${mv('f,F+2')} (auto), ${mv('db+3')} (auto), ${mv('f+3+4')} (auto), WR+2.</p>
+
+        <h4 class="minihead">HRS Attack Menu</h4>
+        <table class="data compact">
+          <tr><td>${cmd('lidia','HRS.1')}</td><td>High PC wallsplat. +1 OB. Hit-confirm before pressing. Auto HRS.</td></tr>
+          <tr><td>${cmd('lidia','HRS.2')}</td><td>Mid HE. -10 OB. Auto-HAE in heat or hold-back cancel.</td></tr>
+          <tr><td>${cmd('lidia','HRS.3')}</td><td>Mid homing -4. Anti-low-jab. Combo with f1+2/ff2/f24.</td></tr>
+          <tr><td>${cmd('lidia','HRS.4')}</td><td>Mid +8 OB → auto-WLF. Best follow: WLF.2.</td></tr>
+          <tr><td>${cmd('lidia','HRS.1+2')}</td><td>Low CH launcher. High crush. Heat lvl 3: NH KND.</td></tr>
+        </table>
+        <div class="tip-box"><b>HRS philosophy (Leemishima):</b> "99% of the time you need to hit confirm before pressing afterward. If HRS.1 gets blocked, don't press."</div>
+      </div>
+
+      <h3 class="subhead">CAT — Cat Stance (Mix-Up Stance)</h3>
+      <div class="card">
+        <p class="body"><b>Enter via:</b> ${mv('df+2')} (auto), ${mv('1,2,2')} (auto), ws4,2.</p>
+
+        <h4 class="minihead">CAT Attack Menu</h4>
+        <table class="data compact">
+          <tr><td>${cmd('lidia','CAT.1')}</td><td>Safe mid -4. CH combo with f,F+1+2.</td></tr>
+          <tr><td>${cmd('lidia','CAT.2,3,1')}</td><td>Delayable high string.</td></tr>
+          <tr><td>${cmd('lidia','CAT.3')}</td><td>Fastest CAT (i13). Safe HE. Hit-confirm tool.</td></tr>
+          <tr><td>${cmd('lidia','CAT.4')}</td><td>CH launcher low. High crush. Heat: HAE makes safe.</td></tr>
+          <tr><td>${cmd('lidia','CAT.1+2')}</td><td>BEST CAT MOVE. Tracking mid.</td></tr>
+        </table>
+      </div>
+
+      <h3 class="subhead">WLF — Stalking Wolf (Pressure Stance)</h3>
+      <div class="card">
+        <p class="body"><b>Enter via:</b> HRS.4 (auto), CAT.U (heat HAE then b for WLF), or stance flows from HRS/CAT.</p>
+        <p class="body"><b>Use when:</b> opponent respects Lidia. Don't enter WLF blind — only from + frame setups.</p>
+
+        <h4 class="minihead">WLF Attack Menu</h4>
+        <table class="data compact">
+          <tr><td>${cmd('lidia','WLF.1')}</td><td>+2 OB mid. Hold for launcher.</td></tr>
+          <tr><td>${cmd('lidia','WLF.2')}</td><td>BEST WLF MOVE. Fast wallsplat safe.</td></tr>
+          <tr><td>${cmd('lidia','WLF.3,1')}</td><td>Safe mids, CH combo.</td></tr>
+          <tr><td>${cmd('lidia','WLF.4')}</td><td>Low option. -14 OB.</td></tr>
+        </table>
+      </div>
+
+      <h3 class="subhead">HAE — Heaven and Earth (Heat Stance)</h3>
+      <div class="card">
+        <p class="body"><b>Enter via:</b> Press U from any stance during heat. Some moves auto-enter (HRS.2 in heat).</p>
+
+        <h4 class="minihead">HAE Attack Menu</h4>
+        <table class="data compact">
+          <tr><td>${cmd('lidia','HAE.1')}</td><td>PC mid launcher. +80a NH.</td></tr>
+          <tr><td>${cmd('lidia','HAE.2')}</td><td>+6 OB mid. Best cheap damage.</td></tr>
+          <tr><td>${cmd('lidia','HAE.1+2')}</td><td>Unblockable homing high. Mix with HAE.2.</td></tr>
+        </table>
+        <div class="tip-box"><b>HAE mixup:</b> ${mv('HAE.2')} (mid, +6 OB) vs ${mv('HAE.1+2')} (unblockable high homing). Opponent must read which one — duck breaks the high but eats the mid; block mid but eat unblockable.</div>
+      </div>
+    `,
+
+    pressure: () => `
+      <h3 class="subhead">Plus-Frame Pressure</h3>
+      <p class="body">Lidia's pressure tools are concentrated around a few key +OB moves and her HE arsenal. Hit confirm everything.</p>
+
+      <h4 class="minihead">Core Plus-Frame Moves</h4>
+      ${fd('lidia', [
+        { cmd: 'f,F+2', level: 'm', startup: 'i13', dmg: '18', block: '+5', hit: '+15g HRS', ch: '+17', notes: '+5 OB auto-HRS. Heat: natural combo.' },
+        { cmd: 'b+1', level: 'm', startup: 'i18', dmg: '20', block: '+2', hit: '+22c', ch: '', props: ['heat'], notes: '+2 OB HE wallsplat.' },
+        { cmd: 'qcf+4', level: 'h', startup: 'i17', dmg: '18', block: '+5', hit: '+17', ch: '', props: ['homing'], notes: '+5 OB homing.' },
+        { cmd: 'WR+1', level: 'h', startup: 'i13', dmg: '20', block: '+6', hit: '+24a', ch: '', notes: '+6 OB high. Heat: auto-HAE.' },
+        { cmd: 'HRS.4', level: 'm', startup: 'i28', dmg: '30', block: '+8', hit: '+22d WLF', ch: '+44a', notes: '+8 OB auto-WLF.' },
+        { cmd: 'HRS.1', level: 'h', startup: 'i17', dmg: '20', block: '+1', hit: '+16g', ch: '', props: ['powercrush'], notes: 'PC +1 OB.' },
+        { cmd: 'HAE.2', level: 'm', startup: 'i13', dmg: '15', block: '+6', hit: '+14a', ch: '', notes: '+6 OB heat mid.' },
+      ])}
+
+      <h3 class="subhead">Heat Game — HAE Levels</h3>
+      <p class="body">Lidia gets <b>HAE charge levels</b> as heat continues. Level 3 unlocks signature upgrades:</p>
+      ${fd('lidia', [
+        { cmd: 'H.HRS.1+2', level: 'L', startup: 'i20', dmg: '20', block: '-18', hit: 'KND', ch: '+67a', props: ['heat'], notes: 'Lvl 3: NH KND, guaranteed d+1+2 or f,F+3 follow.' },
+        { cmd: 'H.CAT.4,3+4', level: 'L,m', startup: 'i19', dmg: '18,15', block: '-9', hit: '+15a', ch: '', props: ['heat'], notes: 'Lvl 3: becomes combo, more damage.' },
+        { cmd: 'H.f,F+4,3', level: 'L,h', startup: 'i20', dmg: '18,20', block: '-12', hit: 'KND', ch: '', props: ['heat'], notes: 'Lvl 3: wallsplat + delete gray health.' },
+        { cmd: 'H.f,F+2', level: 'm', startup: 'i13', dmg: '18', block: '+5', hit: '+15g', ch: '', props: ['heat'], notes: 'Cannot be countered by PC or parry in heat.' },
+        { cmd: 'H.WR+1', level: 'h', startup: 'i13', dmg: '20', block: '+5', hit: '+31a (+23) HAE', ch: '', props: ['heat'], notes: 'Auto-HAE with combo. Cannot be PC/parry countered.' },
+      ])}
+
+      <h3 class="subhead">Whiff Punish &amp; Spacing</h3>
+      ${fd('lidia', [
+        { cmd: '1,2,2', level: 'h,h,h', startup: 'i10', dmg: '5,8,15', block: '-9', hit: '+5a', ch: '', notes: 'Fast whiff punish.' },
+        { cmd: 'f+2,4', level: 'h,h', startup: 'i12', dmg: '12,18', block: '-9', hit: '+22a', ch: '', notes: 'Range punisher.' },
+        { cmd: 'f+1+2,3,1+2', level: 'h,m,m', startup: 'i14', dmg: '8,10,20', block: '-9', hit: '+24a', ch: '', props: ['heat'], notes: 'BEST whiff punisher. HE.' },
+        { cmd: '3,2', level: 'h,h', startup: 'i15', dmg: '15,20', block: '-13', hit: '+24a', ch: '', notes: 'Max damage.' },
+        { cmd: 'uf+4', level: 'm,h', startup: 'i15', dmg: '20,15', block: '-5', hit: '+69a', ch: '', notes: 'Hopkick launcher.' },
+      ])}
+    `,
+
+    frametraps: () => `
+      <h3 class="subhead">Frame Traps</h3>
+      <p class="body">Leemishima's core frame trap setups exploit Lidia's plus-OB moves.</p>
+
+      <div class="card">
+        <h4 class="minihead">${mv('b+1')} (+2 OB) → ${mv('2,4')}</h4>
+        <p class="body sm">+2 OB into 11f safe combo string. If they mash, 2,4 catches and combos.</p>
+      </div>
+
+      <div class="card">
+        <h4 class="minihead">${mv('db+3')} (+7 OH) → HRS.${mv('2')}</h4>
+        <p class="body sm">Low force-crouch into HE mid. If they're still crouched, HRS.2 hits as mid.</p>
+      </div>
+
+      <div class="card">
+        <h4 class="minihead">${mv('f,F+2')} (+5 OB) → CAT.${mv('3')}</h4>
+        <p class="body sm">Auto-HRS plus-frame setup. Or stay in HRS and use HRS.3 anti-low-jab.</p>
+      </div>
+
+      <div class="card">
+        <h4 class="minihead">${mv('qcf+4')} (+5 OB) → HRS.${mv('1')} / HRS.${mv('2')}</h4>
+        <p class="body sm">Homing → HE/PC mix.</p>
+      </div>
+
+      <div class="card">
+        <h4 class="minihead">HRS.${mv('4')} (+8 OB) → WLF.${mv('2')}</h4>
+        <p class="body sm">+8 → WLF.2 i15 wallsplat. Catches almost anything.</p>
+      </div>
+
+      <h3 class="subhead">Knowledge Checks</h3>
+      <p class="body">Lidia has several moves that look risky but actually high-crush — opponents who mash punishers get launched.</p>
+
+      <div class="card">
+        <h4 class="minihead">${mv('df+2')} → CAT.${mv('4')}</h4>
+        <p class="body sm">df+2 puts Lidia in CAT. CAT.4 <b>high-crushes</b> — beats opponents mashing jabs in response to seeing CAT stance.</p>
+      </div>
+
+      <div class="card">
+        <h4 class="minihead">${mv('f,F+2')} → HRS.${mv('1+2')}</h4>
+        <p class="body sm">ff+2 auto-HRS. HRS.1+2 <b>high-crushes</b> — beats jab mashers expecting your HRS.2 HE.</p>
+      </div>
+
+      <div class="card">
+        <h4 class="minihead">${mv('b+4')} → ${mv('d+2')}</h4>
+        <p class="body sm">b+4 high. d+2 <b>high-crushes</b> + hits grounded. Beats opponents mashing post-block.</p>
+      </div>
+
+      <div class="card">
+        <h4 class="minihead">df+2 spam + hold back</h4>
+        <p class="body sm">Leemishima's signature: spam ${mv('df+2')} and hold back to block follow-ups. React to CH animation, hit-confirm with ${mv('CAT.3')}.</p>
+      </div>
+    `,
+
+    matchups: () => `
+      <h3 class="subhead">Matchup Tips</h3>
+      <p class="body">Lidia's weak tracking is her biggest matchup liability. Compensate with df+1 (tracks left) and df+2 (tracks right) — keep opponents from sidestepping freely.</p>
+
+      <div class="matchups">
+        ${[
+          ['Jin','Stay outside EWGF range. Use ${b+1} +2 OB pressure. Punish blocked Mishimas with ${uf+4}.'],
+          ['Kazuya','Block first — his pressure outclasses yours. Punish hellsweep with ${ws2}. PC ${HAE.1} in heat.'],
+          ['King','Break throws religiously. Your range ${f+1+2,3,1+2} keeps him out.'],
+          ['Dragunov','Tough matchup. Respect his ${df+2}. Use your auto-low-parry ${db+3+4} against his lows.'],
+          ['Paul','Duck deathfist for ${ws2}. SSL most strings. ${f+1+2,3,1+2} whiff-punishes his dashes.'],
+          ['Jun','Her CH game punishes your risky frames. Avoid ${db+3} spam. Hit-confirm everything.'],
+          ['Nina','Range 0 hurts. Use ${f+1+2,3,1+2} HE to keep distance. ${uf+4} catches her ss1 attempts.'],
+          ['Lili','Both poor-tracking — stepping war. ${df+1}/${df+2} cover axes. Watch for her ${df+3}.'],
+          ['Miary Zo','Slow backdash — pin her. ${f,F+2} approach + ${b+1} pressure walls her.'],
+          ['Reina','SSL Sentai. Punish her unsafe lows. ${HAE.1} PC in heat beats her tricks.'],
+          ['Azucena','Interrupt Libertador with jabs. ${db+3+4} low parry catches her wake-up lows.'],
+          ['Yoshimitsu','Patience. Auto-parry ${db+3+4} handles his Flash. Punish stance entries with ${uf+4}.'],
+          ['Hwoarang','Duck flamingo highs. ${HRS.3} homing catches his stance switches.'],
+          ['Bryan','Respect backdash. Use range moves only when sure. ${b+1} wall pressure.'],
+          ['Heihachi','Duck electrics. Punish blocked hellsweep with ${ws2}. Respect his oki.'],
+          ['Feng','SSL Shifting Clouds. Punish command grabs with jab. CAT.${1+2} tracks homing.'],
+          ['Alisa','Chainsaw awkward — close with ${f,F+1+2}.'],
+          ['Clive','Projectile annoys — close with ${f,F+1}. Punish stance moves individually.'],
+          ['Victor','Teleport tricky. ${qcf+4} homing catches warps.'],
+          ['Lars','Interrupt DE with jab. Close hurts him.'],
+          ['Leroy','Parry monster. Avoid commit moves. Use ${db+3} HC.'],
+          ['Zafina','Stance-heavy. Your ${HRS.3} homing catches SCR transitions.'],
+          ['Armor King','Throws hurt — back break drills. Range beats his grab.'],
+          ['Eddy','Capoeira evasion. ${uf+4} / CAT.${1+2} counter handstand.'],
+        ].map(([char, tip]) => `<div class="m-row"><span class="char">${char}</span><span class="tip">${tip.replace(/\$\{([^}]+)\}/g, (_, n) => mv(n))}</span></div>`).join('')}
+      </div>
+    `,
+
+    defense_vs: () => `
+      <h3 class="subhead">Playing Against Lidia</h3>
+      <p class="body">Leemishima's own defensive notes — what Lidia players don't want you to know.</p>
+
+      <h3 class="subhead">Core Anti-Lidia Principles</h3>
+
+      <div class="card">
+        <h4 class="minihead">Hold back and react</h4>
+        <p class="body">Lidia's gameplan is hit-confirm everything. <b>Defensive blocking + reaction</b> turns the tables — make her commit to risky frames, then launch.</p>
+      </div>
+
+      <div class="card">
+        <h4 class="minihead">Side step both directions</h4>
+        <p class="body">You can sidestep her both ways. <b>Check which df she uses</b> — ${mv('df+1')} tracks left, ${mv('df+2')} tracks right. Step against the one she doesn't favor.</p>
+      </div>
+
+      <div class="card">
+        <h4 class="minihead">Mid jab her ${mv('f,F+2')}</h4>
+        <p class="body">Mid jab beats most Lidia moves after ff+2 (+5 OB) — but <b>loses to HRS.3</b> (homing mid). Risk-reward call.</p>
+      </div>
+
+      <h3 class="subhead">Specific Move Counters</h3>
+
+      <div class="card">
+        <h4 class="minihead">${mv('H.WR+1')} → HAE Mix</h4>
+        <p class="body">Heat WR+1 auto-HAE setup is her scariest. <b>Sidestep RIGHT and duck</b> — this option-selects the ${mv('HAE.2')} vs ${mv('HAE.1+2')} mixup. Step kills HAE.2 (linear); duck kills HAE.1+2 (high). One movement covers both.</p>
+      </div>
+
+      <div class="card">
+        <h4 class="minihead">${mv('db+3')} — Homing Low</h4>
+        <p class="body">-11 OB. <b>Launch-punish on block</b> with your i11 launcher (if you have one), or just float her with mid string.</p>
+      </div>
+
+      <div class="card">
+        <h4 class="minihead">${mv('HRS.2')} — HE Mid</h4>
+        <p class="body">-10 OB. Use your i10 punish — chunk her hard for committing.</p>
+      </div>
+
+      <div class="card">
+        <h4 class="minihead">${mv('HRS.1+2')} — Low CH Launcher</h4>
+        <p class="body">-18 OB. Full launch punish. Don't get hit by it though — CH launches you. Block standing first.</p>
+      </div>
+
+      <div class="card">
+        <h4 class="minihead">${mv('CAT.4')} — Low CH Launcher</h4>
+        <p class="body">-6 OB normally, but in heat she can HAE-cancel to make it safe. Without heat, mid jab punishes -6.</p>
+      </div>
+
+      <div class="card">
+        <h4 class="minihead">${mv('HAE.1+2')} — Unblockable High</h4>
+        <p class="body"><b>Duck it.</b> It's high. Yes, it's unblockable, but ducking makes it whiff entirely. While ducking, ${mv('HAE.2')} mid hits you — so it's still a 50/50, but you have a real out.</p>
+      </div>
+
+      <h3 class="subhead">Defensive Summary</h3>
+      <div class="do-dont">
+        <div class="do"><h4>When facing Lidia, DO</h4><ul>
+          <li>Hold back and block-react — her gameplan requires hit-confirm</li>
+          <li>Sidestep both directions — check her df preference</li>
+          <li>Duck ${mv('HAE.1+2')} unblockable</li>
+          <li>Punish -10 HRS.2 with i10</li>
+          <li>Launch-punish -11 db+3 on block</li>
+          <li>Disrupt stance entries before they auto-transition</li>
+          <li>Step right + duck vs ${mv('H.WR+1')} option-select</li>
+        </ul></div>
+        <div class="dont"><h4>When facing Lidia, DON'T</h4><ul>
+          <li>Mash on her stance entries — auto-attacks punish you</li>
+          <li>Try to PC her ${mv('f,F+2')} in heat — it ignores PC</li>
+          <li>Ignore HAE charge levels — lvl 3 unlocks scary tools</li>
+          <li>Block her ${mv('CAT.4')} lazily without checking heat</li>
+          <li>Get wall-splat — her wall game is excellent</li>
+          <li>Try to backdash her at +OB — she'll close distance</li>
+          <li>Mash post-block at all — every move is hit-confirm bait</li>
+        </ul></div>
+      </div>
+    `,
+
+    dos_donts: () => `
+      <h3 class="subhead">The Ultimate Lidia Do's and Don'ts</h3>
+      <div class="do-dont">
+        <div class="do"><h4>DO</h4><ul>
+          <li><b>Hit-confirm EVERYTHING</b> — Leemishima's #1 rule</li>
+          <li>Use ${mv('df+1')} (tracks left) and ${mv('df+2')} (tracks right) to cover axes</li>
+          <li>Spam ${mv('df+2')} + hold back, react CH → ${mv('CAT.3')}</li>
+          <li>Master ${mv('f+1+2,3,1+2')} — her best whiff punisher</li>
+          <li>Build heat early — HAE levels unlock as heat continues</li>
+          <li>Use ${mv('b+1')} +2 OB for okizeme HE pressure</li>
+          <li>Mix ${mv('HAE.2')} vs ${mv('HAE.1+2')} in heat for hard 50/50</li>
+          <li>Auto-parry low pressure with ${mv('db+3+4')}</li>
+          <li>Drill stance transitions (HRS, CAT, WLF, HAE)</li>
+          <li>Use ${mv('qcf+4')} as your homing tool — +5 OB</li>
+        </ul></div>
+        <div class="dont"><h4>DON'T</h4><ul>
+          <li>Mash extensions — most are -10 to -14, launch-punishable</li>
+          <li>Spam ${mv('db+3')} — -11 OB launch-punishable</li>
+          <li>Enter WLF blindly — only from + setups</li>
+          <li>Forget she has weak tracking — opponents step constantly</li>
+          <li>Use ${mv('HRS.1')} without hit confirm — blocked = bad</li>
+          <li>Pick Lidia as your first character — execution curve is steep</li>
+          <li>Waste heat — HAE-charge progression matters</li>
+          <li>Spam ${mv('CAT.4')} low — -6 OB outside heat is mid-jab punishable</li>
+          <li>Ignore the four-stance flow — single-stance Lidia is half-strength</li>
+          <li>Mash on stance entries when blocked — opponents mash back hard</li>
+        </ul></div>
+      </div>
+
+      <h3 class="subhead">8-Week Lidia Development Plan</h3>
+      <table class="data">
+        <thead><tr><th>Week</th><th>Focus</th></tr></thead>
+        <tbody>
+          <tr><td>Week 1</td><td>Movelist + punishers. ${mv('1,2,2')}, ${mv('df+1,2')}, ${mv('f+2,4')}, ${mv('uf+4')}. Hit-confirm drills.</td></tr>
+          <tr><td>Week 2</td><td>HRS stance. ${mv('f,F+2')} → HRS.1/2/3/4. Practice cancel via hold-back.</td></tr>
+          <tr><td>Week 3</td><td>CAT stance. ${mv('df+2')} → CAT.1/3/4. Master the hold-back-and-react CH read.</td></tr>
+          <tr><td>Week 4</td><td>WLF transitions from HRS.4 / CAT.3,F. ${mv('WLF.2')} wallsplat combos.</td></tr>
+          <tr><td>Week 5</td><td>Combo skeleton: launcher → ff+2 → HRS.2 → db+2 → qcf+1+2,2 T! → cancel → b+3,4 → qcf+1+2.</td></tr>
+          <tr><td>Week 6</td><td>Heat HAE mastery. ${mv('HAE.1')} PC launcher. ${mv('HAE.2')}/${mv('HAE.1+2')} mixup drills.</td></tr>
+          <tr><td>Week 7</td><td>Knowledge checks: high-crush options after stance entries. Frame trap setups.</td></tr>
+          <tr><td>Week 8</td><td>Matchup-specific prep. Replay review. Ranked push.</td></tr>
         </tbody>
       </table>
     `,
