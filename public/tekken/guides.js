@@ -542,3 +542,125 @@ function sectionGlossary() {
 // ============================================================
 
 // Continued in chars.js
+
+// ------------------ MOVEMENT & KBD ------------------
+
+function sectionMovement() {
+  return `
+    <div class="section-head">
+      <div class="kicker">§07</div>
+      <h2>Movement &amp; Korean Backdash</h2>
+      <p class="lede">Movement is what separates ranks. If you can backdash, sidestep, and sidewalk on command, you create whiff punish opportunities every single round — and that's how points stack up.</p>
+    </div>
+
+    <div class="card priority">
+      <h3>Why movement matters more than combos</h3>
+      <p>At every rank, the player who moves better wins more. Backdashing creates whiff punishes (your opponent's worst nightmare — a launcher for a missed button). Sidestepping evades linear strings entirely. Sidewalk neutralizes pressure characters who lean on plus frames. Spend 5–10 minutes a day on movement and your win rate climbs even without learning a single new combo.</p>
+    </div>
+
+    <h3 class="subhead">The Three Movement Techniques</h3>
+    <div class="three-col">
+      <div class="mini-card">
+        <h4>1 · Backdash</h4>
+        <p>Tap ${iconHTML('b', 14)} ${iconHTML('b', 14)} — Lara takes one quick hop backward.</p>
+        <p>Range: roughly 1 character-width. Slow on recovery — that's why we cancel it (see below).</p>
+        <p class="sm"><b>Use:</b> Create space when blocked, bait whiff punishes, set up your favorite mid-range tools.</p>
+      </div>
+      <div class="mini-card">
+        <h4>2 · Sidestep (SS)</h4>
+        <p>Tap ${iconHTML('u', 14)} or ${iconHTML('d', 14)} briefly — one quick step.</p>
+        <p>Evades <b>linear moves</b> entirely. Most launchers and pokes are linear.</p>
+        <p class="sm"><b>Use:</b> Step before a predictable mid, follow up with whiff punish (df+2 / launcher).</p>
+      </div>
+      <div class="mini-card">
+        <h4>3 · Sidewalk (SW)</h4>
+        <p>Hold ${iconHTML('uhold', 14)} or ${iconHTML('dhold', 14)} — continuous lateral movement.</p>
+        <p>Covers more distance than sidestep but is slower to react with.</p>
+        <p class="sm"><b>Use:</b> Long sequences of plus frames where opponent commits to one direction.</p>
+      </div>
+    </div>
+
+    <h3 class="subhead">Korean Backdash (KBD) — The Pro Skill</h3>
+    <div class="card">
+      <p class="body">Korean Backdash is the technique of <b>cancelling the recovery of a backdash with crouch + repeat</b>, so you keep backing away faster than the normal animation allows. Every top-100 player uses it. You don't need it at Blue or Purple — but to climb past Garyu it becomes essential.</p>
+
+      <h4 class="minihead">The Input</h4>
+      <div class="kbd-input">
+        <div class="kbd-token">${iconHTML('b', 22)}</div>
+        <div class="kbd-arrow">→</div>
+        <div class="kbd-token kbd-neutral">N</div>
+        <div class="kbd-arrow">→</div>
+        <div class="kbd-token">${iconHTML('b', 22)}</div>
+        <div class="kbd-arrow">→</div>
+        <div class="kbd-token">${iconHTML('db', 22)}</div>
+        <div class="kbd-arrow">→</div>
+        <div class="kbd-token">${iconHTML('b', 22)}</div>
+        <div class="kbd-arrow">→</div>
+        <div class="kbd-token">${iconHTML('db', 22)}</div>
+        <div class="kbd-arrow">…</div>
+      </div>
+      <p class="body sm" style="margin-top: 10px;">The pattern: backdash, return to neutral briefly, then <b>back → diagonal-down-back → back → diagonal-down-back</b> in rhythm. The diagonal-down-back input cancels the backdash recovery, letting you input the next backdash sooner. Each rep moves you another half character-width back.</p>
+
+      <h4 class="minihead">How to Practice</h4>
+      <div class="kbd-drill">
+        <div class="kbd-step"><b class="step-num">01</b><div><b>Turn on input display.</b> Training menu → input history visible. You need to see what your hands are actually doing.</div></div>
+        <div class="kbd-step"><b class="step-num">02</b><div><b>Do one clean backdash.</b> Tap ${iconHTML('b', 14)}${iconHTML('b', 14)}. Watch the input log. Two clean back inputs separated by neutral.</div></div>
+        <div class="kbd-step"><b class="step-num">03</b><div><b>Add the cancel.</b> ${iconHTML('b', 14)} ${iconHTML('db', 14)} ${iconHTML('b', 14)} ${iconHTML('db', 14)}. Slow at first. Don't worry about speed.</div></div>
+        <div class="kbd-step"><b class="step-num">04</b><div><b>Five reps slowly, perfectly.</b> Speed comes from consistency. Sloppy fast KBD is worse than slow clean KBD.</div></div>
+        <div class="kbd-step"><b class="step-num">05</b><div><b>Increase pace by 10% only when 10/10 are clean.</b> Every session: 5 minutes of KBD drills before anything else.</div></div>
+        <div class="kbd-step"><b class="step-num">06</b><div><b>Integrate into matches.</b> Try one KBD per round. Then two. Build the habit. By month 2 you won't think about the input.</div></div>
+      </div>
+
+      <h4 class="minihead">Common Mistakes</h4>
+      <div class="two-col">
+        <div>
+          <p class="body"><b class="warn">Holding back instead of tapping.</b> Holding ${iconHTML('b', 14)} = block, not backdash. You need a clean tap-release-tap.</p>
+          <p class="body"><b class="warn">Skipping the down-back.</b> If you skip ${iconHTML('db', 14)}, you're just spamming backdashes — same speed as before. The diagonal is the speed-up.</p>
+          <p class="body"><b class="warn">Going too fast too early.</b> Your fingers learn rhythm first, speed second. Slow is fast.</p>
+        </div>
+        <div>
+          <p class="body"><b class="good">Use input display every session.</b> If you don't see clean ${iconHTML('b', 14)} → ${iconHTML('db', 14)} → ${iconHTML('b', 14)} → ${iconHTML('db', 14)} in the log, slow down.</p>
+          <p class="body"><b class="good">Drill from your character select.</b> Don't switch characters every week — the inputs feel different on every character at first.</p>
+          <p class="body"><b class="good">5 minutes per day for 2 months.</b> That's how everyone good got there. No shortcut.</p>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="subhead">When to Use Each Movement</h3>
+    <table class="data">
+      <thead><tr><th>Situation</th><th>Movement</th><th>Why</th></tr></thead>
+      <tbody>
+        <tr><td>Just blocked their string, you're -5 to -8</td><td>Backdash / KBD</td><td>Create space → bait whiff punish</td></tr>
+        <tr><td>They're spamming a linear launcher</td><td>Sidestep + launch</td><td>SS evades, then ${mv('df+2')} or your launcher</td></tr>
+        <tr><td>They're plus on block with a linear move</td><td>Sidewalk</td><td>Walk around their pressure without committing</td></tr>
+        <tr><td>You're at neutral, waiting for them to commit</td><td>KBD + walk-in</td><td>Disrupt their range judgment</td></tr>
+        <tr><td>Pinned at wall</td><td>Sidestep ONLY (no backdash)</td><td>Backdash is useless at wall; sidestep can escape</td></tr>
+        <tr><td>They use a homing move ${propIconHTML('homing', 14)}</td><td>BLOCK — don't step</td><td>Homing tracks. Block and punish instead</td></tr>
+      </tbody>
+    </table>
+
+    <h3 class="subhead">Movement Tier — When You Need What</h3>
+    <div class="rank-chart">
+      <div class="rank-tier"><b class="rt-label">Beginner ➜ Blue</b><p>Just learn to backdash and sidestep cleanly. No KBD needed yet.</p></div>
+      <div class="rank-tier"><b class="rt-label">Purple ➜ Garyu</b><p>Start KBD drills. 5 min/day. Use it in matches occasionally.</p></div>
+      <div class="rank-tier"><b class="rt-label">Garyu ➜ Flame</b><p>KBD must be reflexive. Whiff-punishing should be your primary win condition.</p></div>
+      <div class="rank-tier"><b class="rt-label">Flame ➜ Beyond</b><p>Sidewalk-canceling, micro-walks, anti-mash backdash. Movement is now your identity.</p></div>
+    </div>
+
+    <h3 class="subhead">Drills (Daily, 10 Minutes Total)</h3>
+    <div class="three-col">
+      <div class="mini-card">
+        <h4>Drill 1 · KBD Slow (3 min)</h4>
+        <p>Input display ON. Do 10 reps of clean ${iconHTML('b', 14)}${iconHTML('db', 14)}${iconHTML('b', 14)}${iconHTML('db', 14)}${iconHTML('b', 14)}${iconHTML('db', 14)}. Slow as needed.</p>
+      </div>
+      <div class="mini-card">
+        <h4>Drill 2 · KBD Fast (3 min)</h4>
+        <p>Same input, full speed. Only count reps with clean inputs in the log.</p>
+      </div>
+      <div class="mini-card">
+        <h4>Drill 3 · SS Whiff Punish (4 min)</h4>
+        <p>Set dummy to do ${mv('df+2')} on repeat. Sidestep + your i15 launcher. 10 successful punishes.</p>
+      </div>
+    </div>
+  `;
+}

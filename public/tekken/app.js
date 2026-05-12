@@ -11,6 +11,7 @@ const SECTIONS = {
   training: { label: 'The 90-Day Plan', render: sectionTrainingPlan, num: '04' },
   ranks: { label: 'Ranks & Picks', render: sectionRanksAndPicks, num: '05' },
   glossary: { label: 'Glossary', render: sectionGlossary, num: '06' },
+  movement: { label: 'Movement & KBD', render: sectionMovement, num: '07' },
 };
 
 const CHAR_TABS = [
@@ -45,11 +46,19 @@ function renderHome() {
 
   const charTiles = Object.entries(CHARACTERS).map(([key, c]) => `
     <div class="char-tile" data-nav="char:${key}" style="--char-color: ${c.color}">
-      <div class="diff">${c.difficulty}</div>
-      <h3>${c.name}</h3>
-      <div class="subtitle">${c.subtitle}</div>
-      <div class="tags">
-        ${c.tags.map(t => `<span class="tag">${t}</span>`).join('')}
+      <div class="char-tile-img">
+        ${c.image
+          ? `<img src="${c.image}" alt="${c.name}" loading="lazy" onerror="this.style.display='none';this.parentElement.innerHTML='<div class=&quot;portrait-fallback-sm&quot;>${c.name.charAt(0)}</div>';">`
+          : `<div class="portrait-fallback-sm">${c.name.charAt(0)}</div>`
+        }
+      </div>
+      <div class="char-tile-body">
+        <div class="diff">${c.difficulty}</div>
+        <h3>${c.name}</h3>
+        <div class="subtitle">${c.subtitle}</div>
+        <div class="tags">
+          ${c.tags.map(t => `<span class="tag">${t}</span>`).join('')}
+        </div>
       </div>
     </div>
   `).join('');
@@ -61,20 +70,51 @@ function renderHome() {
       <p class="hero-lede">One stop for everything a new Tekken player needs: fundamentals, wake-up theory, a 90-day path from beginner to Purple, and in-depth guides for Jun, Nina, Miary Zo, and Lili — with inputs in either icon or text notation.</p>
       <div class="hero-stats">
         <div class="hero-stat"><div class="n">4</div><div class="l">Character guides</div></div>
-        <div class="hero-stat"><div class="n">6</div><div class="l">Beginner chapters</div></div>
+        <div class="hero-stat"><div class="n">7</div><div class="l">Beginner chapters</div></div>
         <div class="hero-stat"><div class="n">90</div><div class="l">Day training plan</div></div>
         <div class="hero-stat"><div class="n">∞</div><div class="l">Okizeme links</div></div>
       </div>
     </div>
 
     <h2 class="section-heading">Beginner's Guide</h2>
-    <p class="section-subheading">Start here if you're new. These six chapters give you the language, the mechanics, and the roadmap.</p>
+    <p class="section-subheading">Start here if you're new. These seven chapters give you the language, the mechanics, and the roadmap.</p>
     <div class="home-grid">${sectionTiles}</div>
 
     <div class="chars-section">
       <h2 class="section-heading">Character Guides</h2>
       <p class="section-subheading">Click the move notation in any guide to open its video and frame data on okizeme.gg.</p>
       <div class="char-grid">${charTiles}</div>
+    </div>
+
+    <div class="trackers-section">
+      <h2 class="section-heading">Tournament Trackers</h2>
+      <p class="section-subheading">Find local & online Tekken events, check stream schedules, register for tournaments, and track top player results.</p>
+      <div class="trackers-grid">
+        <a class="tracker-card" href="https://www.start.gg/search/tournaments?filter=Tekken" target="_blank" rel="noopener">
+          <div class="tracker-logo">start.gg</div>
+          <h3>start.gg · Tekken Tournaments</h3>
+          <p>The biggest tournament platform — find brackets, register for locals, check upcoming majors, and watch results from the global Tekken scene. Filter by location, date, prize pool.</p>
+          <div class="tracker-cta">Browse tournaments →</div>
+        </a>
+        <a class="tracker-card" href="https://sk-tekken.com/tracker" target="_blank" rel="noopener">
+          <div class="tracker-logo">SK Tracker</div>
+          <h3>SK-Tekken Tracker</h3>
+          <p>Detailed Tekken 8 tournament tracker with player rankings, head-to-head records, character usage stats, and bracket-level stream info.</p>
+          <div class="tracker-cta">Open tracker →</div>
+        </a>
+        <a class="tracker-card" href="https://tekken-esports.bn-ent.net/schedule?lang=en&order=0&event_status=1" target="_blank" rel="noopener">
+          <div class="tracker-logo">OFFICIAL</div>
+          <h3>TEKKEN Esports Portal</h3>
+          <p>Bandai Namco's official Tekken World Tour schedule — tier list tournaments (DOJO, CHALLENGER, MASTER), regional finals, and the road to the World Tour Finals.</p>
+          <div class="tracker-cta">View TWT schedule →</div>
+        </a>
+        <a class="tracker-card" href="https://liquipedia.net/fighters/Tekken_8/Tournaments" target="_blank" rel="noopener">
+          <div class="tracker-logo">Liquipedia</div>
+          <h3>Liquipedia · Tekken 8</h3>
+          <p>Full historical tournament archive with prize pools, entrant counts, player records, and bracket links. The reference for top-level Tekken scene stats.</p>
+          <div class="tracker-cta">Open archive →</div>
+        </a>
+      </div>
     </div>
 
     <div class="tip-box" style="margin-top: 32px;">
@@ -91,6 +131,7 @@ function getSectionBlurb(key) {
     training: 'A week-by-week plan from beginner to Purple rank. Realistic goals, daily structure.',
     ranks: 'How the rank ladder works, which characters to pick, and universal do\'s and don\'ts.',
     glossary: 'The Tekken vocabulary — every acronym and term, plus the best external resources.',
+    movement: 'Backdash, sidestep, sidewalk, and Korean Backdash. The skill that separates ranks.',
   };
   return blurbs[key] || '';
 }
@@ -113,13 +154,21 @@ function renderCharacterPage() {
 
   return `
     <div class="char-header" style="--char-color: ${c.color}">
-      <div class="kicker">Character Guide</div>
-      <h1>${c.name}</h1>
-      <div class="subtitle">${c.subtitle}</div>
-      <div class="meta">
-        <span class="tag">Difficulty · ${c.difficulty}</span>
-        ${c.tags.map(t => `<span class="tag">${t}</span>`).join('')}
-        <a class="tag" href="https://okizeme.gg/database/${c.okizeme}" target="_blank" rel="noopener" style="color: var(--char-color, var(--accent)); border-color: currentColor;">okizeme.gg ↗</a>
+      <div class="char-header-text">
+        <div class="kicker">Character Guide</div>
+        <h1>${c.name}</h1>
+        <div class="subtitle">${c.subtitle}</div>
+        <div class="meta">
+          <span class="tag">Difficulty · ${c.difficulty}</span>
+          ${c.tags.map(t => `<span class="tag">${t}</span>`).join('')}
+          <a class="tag" href="https://okizeme.gg/database/${c.okizeme}" target="_blank" rel="noopener" style="color: var(--char-color, var(--accent)); border-color: currentColor;">okizeme.gg ↗</a>
+        </div>
+      </div>
+      <div class="char-portrait">
+        ${c.image
+          ? `<img src="${c.image}" alt="${c.name}" loading="lazy" onerror="this.style.display='none';this.parentElement.innerHTML='<div class=&quot;portrait-fallback&quot;>${c.name.charAt(0)}</div>';">`
+          : `<div class="portrait-fallback">${c.name.charAt(0)}</div>`
+        }
       </div>
     </div>
 

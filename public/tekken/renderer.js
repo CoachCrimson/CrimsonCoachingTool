@@ -43,13 +43,13 @@ function iconHTML(name, size = 22) {
   return `<img src="${src}" class="ico" style="width:${size}px;height:${size}px;" alt="${name}">`;
 }
 
-function propIconHTML(name, size = 18) {
+function propIconHTML(name, size = 16) {
   const iconName = PROP_ICONS[name] || name;
   return iconHTML(iconName, size);
 }
 
 // Render a move notation as either icons or text
-function renderMove(notation, size = 18) {
+function renderMove(notation, size = 16) {
   if (state.notation === 'text') {
     return `<span class="move-text">${notation}</span>`;
   }
@@ -69,7 +69,7 @@ function renderMove(notation, size = 18) {
         // All buttons - use combo icon
         const comboKey = buttonParts.sort().join('+');
         if (BTN_MAP[comboKey]) {
-          parts.push(iconHTML(BTN_MAP[comboKey], size + 4));
+          parts.push(iconHTML(BTN_MAP[comboKey], size + 2));
           continue;
         }
       }
@@ -78,7 +78,7 @@ function renderMove(notation, size = 18) {
         if (i > 0) parts.push('<span class="plus">+</span>');
         const sub = subparts[i];
         if (DIR_MAP[sub]) parts.push(iconHTML(DIR_MAP[sub], size));
-        else if (BTN_MAP[sub]) parts.push(iconHTML(BTN_MAP[sub], size + 4));
+        else if (BTN_MAP[sub]) parts.push(iconHTML(BTN_MAP[sub], size + 2));
         else parts.push(`<span class="txt">${sub}</span>`);
       }
       continue;
@@ -88,7 +88,7 @@ function renderMove(notation, size = 18) {
       continue;
     }
     if (BTN_MAP[token]) {
-      parts.push(iconHTML(BTN_MAP[token], size + 4));
+      parts.push(iconHTML(BTN_MAP[token], size + 2));
       continue;
     }
     parts.push(`<span class="txt">${token}</span>`);
@@ -100,7 +100,7 @@ function renderMove(notation, size = 18) {
 function mv(notation, size) { return renderMove(notation, size); }
 function cmd(character, notation) {
   const url = `https://okizeme.gg/database/${character}`;
-  return `<a href="${url}" class="cmd-link" target="_blank" rel="noopener">${mv(notation, 16)}</a>`;
+  return `<a href="${url}" class="cmd-link" target="_blank" rel="noopener">${mv(notation, 14)}</a>`;
 }
 function prop(name, size) { return propIconHTML(name, size); }
 

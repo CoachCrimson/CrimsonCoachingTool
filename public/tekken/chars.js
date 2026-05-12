@@ -5,6 +5,14 @@
 // Miary Zo: TekkenDocs frame data + dotesports + tekken8combo
 // Lili: DewGlider (TekkenDocs, Jul 2025, v2.03)
 // All move fields are arrow functions so notation toggles re-render.
+//
+// PORTRAITS: each character has an `image` field. Empty ('') uses a
+// stylized fallback with character accent color. To add a real photo,
+// set image: 'https://...' to a hosted URL. Recommended sources:
+//   - https://tekken.fandom.com/wiki/<Character>/Gallery (right-click
+//     → Copy image address on any T8 render)
+//   - imgur, your own CDN, etc.
+//   - Aspect: portrait, head + upper torso visible
 // ============================================================
 
 const CHARACTERS = {
@@ -17,6 +25,7 @@ const CHARACTERS = {
     subtitle: 'The Kazama Bloodline · Counter-Hit Fundamentalist',
     difficulty: 'Medium',
     okizeme: 'jun',
+    image: '',
     color: '#ff6b8b',
     accent: '#c9184a',
     tags: ['Stances: GEN · IZU · MIA', 'Counter-Hit Focused', 'Kazama Essence', 'Mid-Range Specialist'],
@@ -655,6 +664,7 @@ const CHARACTERS = {
     subtitle: 'The Silent Assassin · No Stances · Execution Expert',
     difficulty: 'Expert',
     okizeme: 'nina',
+    image: '',
     color: '#8fb8ff',
     accent: '#0c3a6b',
     tags: ['Rushdown Specialist', 'Chain Throws', 'SS1 Cancels', 'Range-0 Poker'],
@@ -1291,6 +1301,7 @@ const CHARACTERS = {
     subtitle: 'The Fighting God Reborn · Morengy Rushdown',
     difficulty: 'Easy–Medium',
     okizeme: 'miary-zo',
+    image: '',
     color: '#ffb347',
     accent: '#c67818',
     tags: ['Stances: MOR · BAO', 'Rushdown + Pressure', 'Beginner Friendly', 'Wall Carry Queen'],
@@ -2083,6 +2094,7 @@ const CHARACTERS = {
     subtitle: 'The Noble Ballerina · Feisty Rabbit & Dew Glide',
     difficulty: 'Easy–Medium',
     okizeme: 'lili',
+    image: '',
     color: '#e8c3e8',
     accent: '#7a4c8a',
     tags: ['Long-Range Pokes', 'Plus-Frame Pressure', 'Feisty Rabbit', 'Dew Glide', 'Mid-Range Specialist'],
