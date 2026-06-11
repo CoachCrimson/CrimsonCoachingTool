@@ -53,7 +53,7 @@ function renderHome() {
         }
       </div>
       <div class="char-tile-body">
-        <div class="diff">${c.difficulty}</div>
+        <div class="diff">${c.difficulty}</div>${c.isNew ? '<span class="new-badge tile-new">NEW · S3</span>' : ''}
         <h3>${c.name}</h3>
         <div class="subtitle">${c.subtitle}</div>
         <div class="tags">
@@ -67,9 +67,9 @@ function renderHome() {
     <div class="hero">
       <div class="hero-label">Season 3 · Flame Ruler Playbook</div>
       <h1>TEKKEN 8<br><span class="alt">Beginner's Codex</span></h1>
-      <p class="hero-lede">One stop for everything a new Tekken player needs: fundamentals, wake-up theory, a 90-day path from beginner to Purple, and in-depth guides for Jun, Nina, Miary Zo, Lili, and Lidia — with inputs in either icon or text notation.</p>
+      <p class="hero-lede">One stop for everything a new Tekken player needs: fundamentals, wake-up theory, a 90-day path from beginner to Purple, and in-depth guides for Jun, Nina, Miary Zo, Lili, Lidia, and the brand-new Kunimitsu — with inputs in either icon or text notation and embedded video guides.</p>
       <div class="hero-stats">
-        <div class="hero-stat"><div class="n">5</div><div class="l">Character guides</div></div>
+        <div class="hero-stat"><div class="n">6</div><div class="l">Character guides</div></div>
         <div class="hero-stat"><div class="n">7</div><div class="l">Beginner chapters</div></div>
         <div class="hero-stat"><div class="n">90</div><div class="l">Day training plan</div></div>
         <div class="hero-stat"><div class="n">∞</div><div class="l">Okizeme links</div></div>
@@ -152,10 +152,45 @@ function renderCharacterPage() {
     <button class="subtab ${t.key === tab ? 'active' : ''}" data-subtab="${t.key}">${t.label}</button>
   `).join('');
 
+  const videoPanel = c.videos ? `
+    <div class="video-panel">
+      <div class="video-panel-head">
+        <h2 class="video-panel-title">Video Guides</h2>
+        <span class="video-panel-sub">Embedded from YouTube · tap to play</span>
+      </div>
+      <div class="video-grid">
+        ${c.videos.map(v => `
+          <div class="video-card">
+            <div class="video-frame">
+              <iframe src="https://www.youtube.com/embed/${v.id}" title="${v.title}" loading="lazy" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+            <div class="video-meta"><b>${v.title}</b><span>${v.author}</span></div>
+          </div>
+        `).join('')}
+      </div>
+    </div>
+  ` : (c.guideLinks ? `
+    <div class="video-panel">
+      <div class="video-panel-head">
+        <h2 class="video-panel-title">Guide Resources</h2>
+        <span class="video-panel-sub">Full move videos & written guides</span>
+      </div>
+      <div class="guide-link-row">
+        ${c.guideLinks.map(g => `
+          <a class="guide-link-card" href="${g.url}" target="_blank" rel="noopener">
+            <span class="glc-source">${g.source}</span>
+            <b>${g.title}</b>
+            <span class="glc-cta">Open →</span>
+          </a>
+        `).join('')}
+      </div>
+    </div>
+  ` : '');
+
   return `
     <div class="char-header" style="--char-color: ${c.color}">
       <div class="char-header-text">
-        <div class="kicker">Character Guide</div>
+        <div class="kicker">Character Guide${c.isNew ? ' <span class="new-badge">NEW · S3</span>' : ''}</div>
         <h1>${c.name}</h1>
         <div class="subtitle">${c.subtitle}</div>
         <div class="meta">
@@ -173,6 +208,7 @@ function renderCharacterPage() {
     </div>
 
     <div class="subtabs">${subtabsHTML}</div>
+    ${tab === 'overview' ? videoPanel : ''}
     <div class="subtab-content">${tabContent}</div>
   `;
 }

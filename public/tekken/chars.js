@@ -8,8 +8,7 @@
 //
 // PORTRAITS: each character has an `image` field. Empty ('') uses a
 // stylized fallback with character accent color. To add a real photo,
-// set image: 'images/<key>.png' for a local file (see images/ folder)
-// or image: 'https://...' for a hosted URL. Recommended sources:
+// set image: 'https://...' to a hosted URL. Recommended sources:
 //   - https://tekken.fandom.com/wiki/<Character>/Gallery (right-click
 //     → Copy image address on any T8 render)
 //   - imgur, your own CDN, etc.
@@ -26,7 +25,10 @@ const CHARACTERS = {
     subtitle: 'The Kazama Bloodline · Counter-Hit Fundamentalist',
     difficulty: 'Medium',
     okizeme: 'jun',
-    image: 'images/jun.png',
+    image: '',
+    videos: [
+      { id: '9eM1c2Wdpr0', title: "Jun Kazama Beginner's Guide", author: 'sonic_sol' },
+    ],
     color: '#ff6b8b',
     accent: '#c9184a',
     tags: ['Stances: GEN · IZU · MIA', 'Counter-Hit Focused', 'Kazama Essence', 'Mid-Range Specialist'],
@@ -665,7 +667,11 @@ const CHARACTERS = {
     subtitle: 'The Silent Assassin · No Stances · Execution Expert',
     difficulty: 'Expert',
     okizeme: 'nina',
-    image: 'images/nina.png',
+    image: '',
+    guideLinks: [
+      { url: 'https://tekkendocs.com/t8/nina/guide', title: "Lalo's Season 3 Nina Guide", source: 'TekkenDocs' },
+      { url: 'https://okizeme.gg/database/nina', title: 'Full move videos', source: 'okizeme.gg' },
+    ],
     color: '#8fb8ff',
     accent: '#0c3a6b',
     tags: ['Rushdown Specialist', 'Chain Throws', 'SS1 Cancels', 'Range-0 Poker'],
@@ -1302,7 +1308,11 @@ const CHARACTERS = {
     subtitle: 'The Fighting God Reborn · Morengy Rushdown',
     difficulty: 'Easy–Medium',
     okizeme: 'miary-zo',
-    image: 'images/miary.png',
+    image: '',
+    guideLinks: [
+      { url: 'https://tekkendocs.com/t8/miary-zo/guide', title: 'Miary Zo Guide', source: 'TekkenDocs' },
+      { url: 'https://okizeme.gg/database/miary-zo', title: 'Full move videos', source: 'okizeme.gg' },
+    ],
     color: '#ffb347',
     accent: '#c67818',
     tags: ['Stances: MOR · BAO', 'Rushdown + Pressure', 'Beginner Friendly', 'Wall Carry Queen'],
@@ -2095,7 +2105,11 @@ const CHARACTERS = {
     subtitle: 'The Noble Ballerina · Feisty Rabbit & Dew Glide',
     difficulty: 'Easy–Medium',
     okizeme: 'lili',
-    image: 'images/lili.png',
+    image: '',
+    guideLinks: [
+      { url: 'https://tekkendocs.com/t8/lili/guide', title: "DewGlider's Lili Guide", source: 'TekkenDocs' },
+      { url: 'https://okizeme.gg/database/lili', title: 'Full move videos', source: 'okizeme.gg' },
+    ],
     color: '#e8c3e8',
     accent: '#7a4c8a',
     tags: ['Long-Range Pokes', 'Plus-Frame Pressure', 'Feisty Rabbit', 'Dew Glide', 'Mid-Range Specialist'],
@@ -2764,7 +2778,12 @@ const CHARACTERS = {
     subtitle: 'The Polish Prime Minister · Four-Stance Karate Specialist',
     difficulty: 'Hard',
     okizeme: 'lidia',
-    image: 'images/lidia.png',
+    image: '',
+    videos: [
+      { id: 'G-z0xozVIFw', title: 'Lidia Guide', author: 'Pling × DashFight' },
+      { id: 'ZNcxR8xgCOM', title: 'Teach Me Lidia ft. Leemishima', author: 'Leemishima' },
+      { id: 'Od_H7VNJZqo', title: '5 Tips for Lidia', author: 'Tetsu' },
+    ],
     color: '#ffca16',
     accent: '#c89500',
     tags: ['Stances: HRS · CAT · WLF · HAE', 'Hit-Confirm Heavy', 'Strong Heat Mix', 'Punishment King'],
@@ -3374,6 +3393,555 @@ const CHARACTERS = {
           <tr><td>Week 6</td><td>Heat HAE mastery. ${mv('HAE.1')} PC launcher. ${mv('HAE.2')}/${mv('HAE.1+2')} mixup drills.</td></tr>
           <tr><td>Week 7</td><td>Knowledge checks: high-crush options after stance entries. Frame trap setups.</td></tr>
           <tr><td>Week 8</td><td>Matchup-specific prep. Replay review. Ranked push.</td></tr>
+        </tbody>
+      </table>
+    `,
+  },
+
+  // ================================================================
+  // KUNIMITSU — Day-1 analysis (released Jun 1, 2026)
+  // Frame data: TekkenDocs v3.01 · Gameplan: esports.gg + trailer
+  // No established pro guide exists yet — strategy sections are
+  // built from frame data and early community resources.
+  // ================================================================
+  kunimitsu: {
+    name: 'Kunimitsu',
+    subtitle: 'The Phantom Thief · Manji Ninjutsu & Tantojutsu',
+    difficulty: 'Hard',
+    okizeme: 'kunimitsu',
+    image: '',
+    videos: [
+      { id: 'uL2cfy23FkU', title: 'Kunimitsu Combo Guide', author: 'Community' },
+      { id: '_7--ah-IsqE', title: 'Beginner Combos & BnBs', author: 'Community' },
+      { id: 'IMyyQ5gFrWU', title: 'High Damage BnB, Heat & Wall Combos', author: 'Community' },
+      { id: 'Sry3vaNxG0E', title: 'Optimal Combo Guide — Season 3', author: 'TheFURY' },
+    ],
+    color: '#9ef0d0',
+    accent: '#1f8a6a',
+    isNew: true,
+    tags: ['Stances: SET · KAT · MUS · BT', 'Speed & Evasion', 'Attack Throws', 'NEW · Season 3 DLC'],
+
+    overview: () => `
+      <div class="tip-box" style="border-left-color: var(--accent-warm);">
+        <b>Day-1 Guide Notice:</b> Kunimitsu released June 1, 2026 (Season 3, patch 3.01). No established pro guide exists yet — this section is built from TekkenDocs frame data (v3.01), official release material, and early community analysis. Expect this page to evolve as the meta develops. The embedded combo videos below are your best source for optimal routes right now.
+      </div>
+
+      <p class="body"><b>Kunimitsu is a speed-and-evasion kunoichi</b> blending Manji Ninjutsu (Yoshimitsu's school) with tantojutsu — close-range short-blade combat. Bandai Namco's own framing: she "offers a deeply rewarding gameplay experience" for "those who prioritize precise control and mind games." Translation: she's an execution character with elite movement tricks and a stance web that rewards labbing.</p>
+
+      <p class="body">Her kit is full of <b>attack throws</b> (${mv('qcf+1')}, ${mv('d+3,4,1')}, ${mv('WR+2')}, ${mv('ub+3+4')}, ${mv('uf+1')}), a literal <b>invisibility move</b> (${mv('u+3+4')} — invisible frames 12–29, though still hittable), a mashable jailing low chain (${mv('db+3,3,3...')}), and four stances: <b>SET (Setsunagake)</b> forward-moving pressure, <b>KAT (Katon)</b> fire-breathing mixups, <b>MUS (Musasabi)</b> aerial glide, and a deep <b>backturn (BT)</b> kit.</p>
+
+      <h3 class="subhead">Strengths</h3>
+      <div class="mini-card outline-good">
+        <ul>
+          <li><b>Speed</b> — i10 jab strings, i11 BT/KAT jabs, i12 ${mv('df+4')} and ${mv('ws1')}, i13 ${mv('ws2')} and ${mv('qcf+2')}</li>
+          <li><b>Evasion everywhere</b> — ${mv('KAT.3')} hops mids, ${mv('ub+3')} evasive, ${mv('u+3+4')} invisibility, ${mv('KAT.U')} teleport, MUS glide side-switches</li>
+          <li><b>Attack throw pressure</b> — ${mv('WR+2')} is a +6 OB high that converts to a throw on hit</li>
+          <li><b>i14 tornado launcher</b> — ${mv('f,d,df+2')} (electric-style input) is a huge punish reward</li>
+          <li><b>Strong heat kit</b> — ${mv('H.db+1+2')} instant-tornado launcher, ${mv('H.u+1+2')} +5 OB, i14 Heat Smash at +3 OB</li>
+          <li><b>${mv('b+1,1,1,1,1')} chain is +5 ON BLOCK</b> — rare jail pressure (never finish the 6th hit: -72)</li>
+        </ul>
+      </div>
+
+      <h3 class="subhead">Weaknesses (early consensus)</h3>
+      <div class="mini-card outline-bad">
+        <ul>
+          <li><b>Linear kit</b> — much of her offense loses to sidestep, <b>especially to the right</b></li>
+          <li><b>Low damage per touch</b> — she wins by volume of touches, not single big hits</li>
+          <li><b>Execution-heavy</b> — motion inputs (qcf, f,d,df), stance webs, long combo links</li>
+          <li><b>Risky commitments</b> — many strings -12 to -19; mistimed stance pressure gets floated</li>
+        </ul>
+      </div>
+
+      <h3 class="subhead">Heat System</h3>
+      <div class="tip-box">
+        <ul style="margin: 0 0 0 16px; line-height: 1.7;">
+          <li>${mv('H.2+3')} Heat Smash: <b>i14, +3 OB</b>, mid→throw, balcony break, reversal break</li>
+          <li>${mv('H.db+1+2')}: M,M <b>instant tornado on normal hit</b> (+59a) — costs 600F heat time</li>
+          <li>${mv('H.u+1+2')}: 3-hit mid, <b>+5 OB</b>, balcony break — costs 240F heat time</li>
+          <li>${mv('H.KAT.d+1+2')}: L,m,m fire-breath mix from Katon — costs 600F heat time</li>
+          <li>Heat engagers: ${mv('f+1+2')} (i17 mid), ${mv('ws2,1')} (i13), ${mv('BT.1,4')}, ${mv('KAT.1,2')}, SET.1+2</li>
+        </ul>
+      </div>
+
+      <div class="tip-box"><b>Day-1 playstyle read:</b> Poke-and-dash. Touch with i10–13 pokes, convert hits into stance pressure (SET forward / BT turn tricks), fish CH with ${mv('b+2')} (+57 oCH) and ${mv('KAT.2')} (+80a oCH), spend heat on the instant-tornado launcher. Step-right opponents are her nightmare — use ${mv('3')} (homing high) and ${mv('BT.4')} (homing +6 OB) to discipline them.</div>
+    `,
+
+    punishers: () => `
+      <h3 class="subhead">Standing Punishers</h3>
+      ${fd('kunimitsu', [
+        { cmd: '1,2', level: 'h,h', startup: 'i10', dmg: '5,8', block: '-3', hit: '+7', ch: '', notes: 'i10 jab string. Jails with 2f delay.' },
+        { cmd: '1,1,2', level: 'h,m,m', startup: 'i10', dmg: '5,12,24', block: '-9', hit: '+14a (+5)', ch: '+46a', notes: 'i10 mid-confirm route with balcony break ender. Weapon.' },
+        { cmd: '2,2', level: 'h,m', startup: 'i12', dmg: '12,14', block: '-6', hit: '+5', ch: '', notes: 'i12 weapon punish into 2,2,2,2 pressure tree or SET via F.' },
+        { cmd: 'df+4', level: 'm', startup: 'i12', dmg: '13', block: '-9', hit: '+2', ch: '', notes: 'i12 mid check punish.' },
+        { cmd: 'f,d,df+2', level: 'M,h', startup: 'i14~15', dmg: '15,21', block: '-17', hit: '+73a (+57)', ch: '', props: ['tornado'], notes: 'i14 TORNADO LAUNCHER — her best punish reward. Bufferable. -17 OB so only on guaranteed punishes.' },
+        { cmd: 'df+2', level: 'M', startup: 'i15', dmg: '13', block: '-14', hit: '+30a (+20)', ch: '', notes: 'i15 launcher. Launches crouchers. Note: -14 OB — punish tool, not a poke.' },
+        { cmd: 'f+1+2', level: 'm', startup: 'i17', dmg: '23', block: '-6', hit: '+9a (+0)', ch: '', props: ['heat'], notes: 'i17 HE punish. Heat dash +5, +45a.' },
+      ])}
+
+      <h3 class="subhead">While-Standing Punishers</h3>
+      ${fd('kunimitsu', [
+        { cmd: 'ws4', level: 'm', startup: 'i11', dmg: '15', block: '-6', hit: '+5', ch: '', notes: 'i11 standard.' },
+        { cmd: 'ws1', level: 'm', startup: 'i12', dmg: '11', block: '-7', hit: '+4', ch: '', notes: 'i12 with ws1,1 floor-break extension (+13d oCH).' },
+        { cmd: 'ws2,1', level: 'm,m', startup: 'i13', dmg: '14,20', block: '-13', hit: '+9', ch: '', props: ['heat'], notes: 'i13 HEAT ENGAGER punish. Heat dash +5, +43d.' },
+        { cmd: 'ws3', level: 'm', startup: 'i15', dmg: '16', block: '-13', hit: '+32a (+22)', ch: '', notes: 'i15 WS launcher. Low-crushes 9~25.' },
+      ])}
+
+      <h3 class="subhead">Whiff Punishers</h3>
+      ${fd('kunimitsu', [
+        { cmd: 'f,d,df+2', level: 'M,h', startup: 'i14', dmg: '15,21', block: '-17', hit: '+73a (+57)', ch: '', props: ['tornado'], notes: 'Primary whiff launch — bufferable from movement.' },
+        { cmd: 'f+1+2', level: 'm', startup: 'i17', dmg: '23', block: '-6', hit: '+9a', ch: '', props: ['heat'], notes: 'Safe HE whiff punish with reach.' },
+        { cmd: 'f,F+2', level: 'M', startup: 'i19~20', dmg: '18', block: '-12', hit: '+19a (+2)', ch: '+33a (+22)', props: ['tornado'], notes: 'Ranged tornado mid. CH launches.' },
+        { cmd: 'f,f,F+3', level: 'm', startup: 'i23~27', dmg: '30', block: '+3~+7', hit: '+18c', ch: '', notes: 'Running mid — PLUS on block, big damage, forces tech roll.' },
+      ])}
+
+      <div class="tip-box"><b>Day-1 punish plan:</b> i10 → ${mv('1,1,2')} · i12 → ${mv('2,2')} or ${mv('df+4')} · i14+ → ${mv('f,d,df+2')} full launch · WS: i11 ${mv('ws4')}, i13 ${mv('ws2,1')} HE, i15 ${mv('ws3')} launch.</div>
+    `,
+
+    moves: () => `
+      <p class="body"><b>Day-1 core toolkit</b> — the buttons that stand out from the frame data and early play. No pro tier-list exists yet; treat this as a starting kit.</p>
+
+      <h3 class="subhead">1 · ${mv('df+1')} — Standard Mid Check</h3>
+      <p class="body">i13 mid, -2 OB. Extensions: ${mv('df+1,2')} (weapon, CH confirm), ${mv('df+1,3')} (<b>tornado on CH</b>, +44a), ${mv('df+1,2,2')} spike with chip. The df+1,3 CH conversion is one of her best damage sources.</p>
+      <p class="body sm"><span class="code">m · i13~14 · -2 OB · +5 OH</span></p>
+
+      <h3 class="subhead">2 · ${mv('b+2')} — CH Launcher Mid</h3>
+      <p class="body">i17 mid weapon, -9 OB, <b>+57 on CH</b>. Her primary CH fishing button at range. Balcony breaks airborne.</p>
+      <p class="body sm"><span class="code">m · i17~18 · -9 OB · +5 OH · +57 oCH</span></p>
+
+      <h3 class="subhead">3 · ${mv('WR+2')} — Running Attack Throw</h3>
+      <p class="body">i15 running high, <b>+6 OB</b>, transitions to attack throw on front hit, side-switches. Chip on block. Her approach centerpiece — opponents must duck or step it, and both options feed her mids and homing tools.</p>
+      <p class="body sm"><span class="code">h,t · i15~17 · +6 OB · throw OH</span></p>
+
+      <h3 class="subhead">4 · ${mv('b+1,1,1,1,1')} — The +5 Jail Chain</h3>
+      <p class="body">Five-hit high chain that's <b>+5 ON BLOCK</b>. Combos from first hit. Use 1–5 hits and stay plus; <b class="warn">never press the 6th hit</b> (-72 on block — yes, really). Highs, so crouchers beat it — condition first with mids.</p>
+      <p class="body sm"><span class="code">h×5 · i17 · +5 OB · +6 OH · +11 oCH</span></p>
+
+      <h3 class="subhead">5 · ${mv('db+3,3,3...')} — Jailing Low Mash</h3>
+      <p class="body">Mashable low chain that <b>jails from the first block</b> and high-crushes from frame 1. -19 OB per rep so don't overstay, but the hidden gem: ${mv('db+3,3,3,3,3,4')} ender is a <b>mid</b> (ws4 animation, -8 OB, +23a launch on hit) usable after any middle rep — a built-in low/mid exit mix.</p>
+      <p class="body sm"><span class="code">l chain · i18 · -19 OB · mid ender -8 OB</span></p>
+
+      <h3 class="subhead">6 · ${mv('f,d,df+2')} — i14 Tornado Launcher</h3>
+      <p class="body">Electric-style input, i14–15, tornado, <b>+73a on hit</b>. -17 OB. Bufferable. This is her punish/whiff-punish crown jewel — drill the input until automatic.</p>
+      <p class="body sm"><span class="code">M,h · i14~15 · -17 OB · +73a (+57) OH</span></p>
+
+      <h3 class="subhead">7 · ${mv('3')} / ${mv('BT.4')} — Homing Discipline</h3>
+      <p class="body">${mv('3')}: i16 homing high, -7 OB. ${mv('BT.4')}: i16 homing high from backturn, <b>+6 OB</b>, strong aerial tailspin, chip, SET transition via F. These are how you stop the step-right answer to her linear kit.</p>
+      <p class="body sm"><span class="code">3: h · i16 · -7 OB || BT.4: h · i16 · +6 OB</span></p>
+
+      <h3 class="subhead">8 · ${mv('u+3+4')} — Invisibility</h3>
+      <p class="body">Kunimitsu turns <b>invisible on frames 12–29</b> (still hittable), then lands a two-hit mid spike, <b>+1c OB</b>. Slow (i39) — a conditioning/okizeme gimmick, not a neutral tool, but the mental damage is real.</p>
+      <p class="body sm"><span class="code">M,M · i39~42 · +1c OB · +24a OH</span></p>
+
+      <h3 class="subhead">9 · ${mv('d+1')} — Plus-on-Block Mid Spike</h3>
+      <p class="body">i19 mid spike, <b>+3 OB</b>, +13c on CH. Simple, honest plus-frame pressure starter.</p>
+      <p class="body sm"><span class="code">m · i19 · +3 OB · +6 OH · +13c oCH</span></p>
+
+      <h3 class="subhead">10 · ${mv('f,f,F+3')} — Plus Running Mid</h3>
+      <p class="body">i23 running mid, <b>+3 to +7 OB</b>, 30 damage, balcony break, forces tech backroll. Pairs with ${mv('WR+2')} as her run-up 50/50: throw-high vs heavy-mid.</p>
+      <p class="body sm"><span class="code">m · i23~27 · +3~+7 OB · +18c OH</span></p>
+
+      <h3 class="subhead">Notable Supplementary Moves</h3>
+
+      <h4 class="minihead">${mv('qcf+2')} — i13 Mid Spike</h4>
+      <p class="body sm">Bufferable i13 mid, balcony break, chip. -12c OB. Fast crouch-dash mid.</p>
+
+      <h4 class="minihead">${mv('qcf+1')} — Attack Throw Low Stab</h4>
+      <p class="body sm">Special-mid into attack throw on hit, -13 OB constant. ${mv('qcf+1,F')} version side-switches.</p>
+
+      <h4 class="minihead">${mv('d+3,4,1')} — Low-High-Throw String</h4>
+      <p class="body sm">Low starter into automatic attack throw ender. Recovers 12f faster on block.</p>
+
+      <h4 class="minihead">${mv('ub+3+4')} — Tornado Attack Throw</h4>
+      <p class="body sm">i19 mid, tornado, attack-throw on front hit, +31a. -17 OB. Combo tool and okizeme surprise.</p>
+
+      <h4 class="minihead">${mv('d+3+4')} — Power Crush Counter</h4>
+      <p class="body sm">i20 PC mid (armor 7~19). On successful absorption: reversal break + two bonus mid hits, 28 total.</p>
+
+      <h4 class="minihead">${mv('SS.4')} — Stagger Low</h4>
+      <p class="body sm">Sidestep low, clean hit +13d (20 dmg). Stagger on block but <b>-37</b> — strictly a hard read.</p>
+    `,
+
+    framedata: () => `
+      <div class="section-head"><h3 class="subhead">Complete Frame Data Reference — Kunimitsu</h3></div>
+      <p class="body">Frame data from TekkenDocs, game version 3.01 (her release patch). Click any command for video on okizeme.gg.</p>
+
+      <h3 class="subhead">Jabs &amp; Core Strings</h3>
+      ${fd('kunimitsu', [
+        { cmd: '1', level: 'h', startup: 'i10', dmg: '5', block: '+1', hit: '+8', ch: '', notes: 'Recovers 2f faster on hit/block.' },
+        { cmd: '1,1', level: 'h,m', startup: 'i10', dmg: '5,12', block: '-5', hit: '+6', ch: '', notes: 'KAT entry with 1+2.' },
+        { cmd: '1,1,1', level: 'h,m,M', startup: 'i10', dmg: '5,12,18', block: '-11', hit: '+15a (-2)', ch: '', props: ['tornado'], notes: 'Tornado BB ender. Weapon.' },
+        { cmd: '1,1,2', level: 'h,m,m', startup: 'i10', dmg: '5,12,24', block: '-9', hit: '+14a (+5)', ch: '+46a (-1)', notes: 'BB weapon ender.' },
+        { cmd: '1,1,4', level: 'h,m,m', startup: 'i10', dmg: '5,12,23', block: '+3', hit: '+5a', ch: '', notes: 'Spike ender — PLUS on block. Chip.' },
+        { cmd: '1,2', level: 'h,h', startup: 'i10', dmg: '5,8', block: '-3', hit: '+7', ch: '', notes: 'Jails with 2f delay.' },
+        { cmd: '1,2,2', level: 'h,h,h', startup: 'i10', dmg: '5,8,10', block: '-12', hit: '+5', ch: '', notes: 'BT transition with B.' },
+        { cmd: '1,2,4', level: 'h,h,m', startup: 'i10', dmg: '5,8,20', block: '-14', hit: '+12d', ch: '', notes: 'BB mid ender.' },
+        { cmd: '2', level: 'h', startup: 'i12', dmg: '12', block: '-5', hit: '+1', ch: '', notes: 'Weapon jab.' },
+        { cmd: '2,2', level: 'h,m', startup: 'i12', dmg: '12,14', block: '-6', hit: '+5', ch: '', notes: 'Weapon punish.' },
+        { cmd: '2,2,2', level: 'h,m,h', startup: 'i12', dmg: '12,14,16', block: '-9', hit: '+2', ch: '', notes: 'SET entry with F (-4 OB).' },
+        { cmd: '2,2,2,2,2', level: 'h,m,h,h,M', startup: 'i12', dmg: '12,14,16,16,18', block: '-12', hit: '+19a (+2)', ch: '+33a (+23)', props: ['tornado'], notes: 'Full tree T! ender.' },
+        { cmd: '3', level: 'h', startup: 'i16~17', dmg: '17', block: '-7', hit: '+7', ch: '', props: ['homing'], notes: 'Homing high.' },
+        { cmd: '3,4', level: 'h,h', startup: 'i16', dmg: '17,21', block: '-5', hit: '+20a', ch: '+46a', notes: 'CH conversion ender.' },
+        { cmd: '4,2', level: 'h,h', startup: 'i12', dmg: '15,13', block: '-3', hit: '+6', ch: '', notes: 'Jails. BT transition. Weapon.' },
+        { cmd: '3+4', level: 'h', startup: 'i21~22', dmg: '18', block: '-1', hit: '+21a (+12)', ch: '', notes: 'Strong aerial tailspin. BB.' },
+      ])}
+
+      <h3 class="subhead">Pokes &amp; Mids</h3>
+      ${fd('kunimitsu', [
+        { cmd: 'df+1', level: 'm', startup: 'i13~14', dmg: '10', block: '-2', hit: '+5', ch: '', notes: 'Core mid check.' },
+        { cmd: 'df+1,2', level: 'm,m', startup: 'i13', dmg: '10,12', block: '-10', hit: '+1', ch: '', notes: 'Weapon ext, CH confirm.' },
+        { cmd: 'df+1,2,2', level: 'm,m,M', startup: 'i13', dmg: '10,12,20', block: '-14c', hit: '+8a', ch: '', notes: 'BB spike + chip.' },
+        { cmd: 'df+1,3', level: 'm,h', startup: 'i13', dmg: '10,20', block: '-9', hit: '+5', ch: '+44a (+34)', props: ['tornado'], notes: 'CH TORNADO conversion.' },
+        { cmd: 'df+2', level: 'M', startup: 'i15~16', dmg: '13', block: '-14', hit: '+30a (+20)', ch: '', notes: 'Launcher. Launches crouchers. Weapon.' },
+        { cmd: 'df+3,2', level: 'm,L', startup: 'i17', dmg: '14,20', block: '-15', hit: '+1c', ch: '', notes: 'Mid-low. FC cancel with D. High crush on low.' },
+        { cmd: 'df+4', level: 'm', startup: 'i12', dmg: '13', block: '-9', hit: '+2', ch: '', notes: 'i12 mid.' },
+        { cmd: 'df+3+4', level: 'm,m', startup: 'i17', dmg: '8,12', block: '-2', hit: '+5', ch: '', props: ['floorbreak'], notes: 'BT transition. Hits grounded off-axis.' },
+        { cmd: 'd+1', level: 'm', startup: 'i19', dmg: '23', block: '+3', hit: '+6', ch: '+13c', notes: 'PLUS-on-block spike.' },
+        { cmd: 'd+2', level: 'm', startup: 'i16', dmg: '11', block: '-9', hit: '+2c', ch: '', props: ['floorbreak'], notes: 'Weapon. d+2,1,2,1+2 pressure tree.' },
+        { cmd: 'f+2,3', level: 'h,h', startup: 'i13', dmg: '12,20', block: '-6', hit: '+20a (+11)', ch: '', notes: 'Delayed conversion.' },
+        { cmd: 'f+4', level: 'm', startup: 'i15', dmg: '12', block: '-5', hit: '-1', ch: '+7', notes: 'Knee. SET entry with F (+3 OB).' },
+        { cmd: 'f+1+2', level: 'm', startup: 'i17~18', dmg: '23', block: '-6', hit: '+9a (+0)', ch: '', props: ['heat'], notes: 'HE. Heat dash +5, +45a. Chip.' },
+        { cmd: 'f+3+4', level: 'm,h', startup: 'i15', dmg: '10,13', block: '-5', hit: '+23a (+6)', ch: '', notes: 'BB. BT transition is -11.' },
+        { cmd: 'b+1,1,1,1,1', level: 'h×5', startup: 'i17', dmg: '8,9,10,12,14', block: '+5', hit: '+6', ch: '+11', notes: 'PLUS-ON-BLOCK chain. NEVER press 6th (-72).' },
+        { cmd: 'b+2', level: 'm', startup: 'i17~18', dmg: '17', block: '-9', hit: '+5', ch: '+57', notes: 'CH launcher. Weapon. BB airborne.' },
+        { cmd: 'b+4,3', level: 'M,M', startup: 'i18', dmg: '15,20', block: '-16', hit: '+25a (+10)', ch: '+34a (+24)', props: ['tornado'], notes: 'T! combo tool. Steel pedal.' },
+        { cmd: 'b+1+2', level: 'm,t', startup: 'i15~16', dmg: '13,25', block: '-7', hit: '-3a', ch: '', notes: 'Attack throw on grounded hit.' },
+        { cmd: 'b+1+3', level: 'm!', startup: 'i19', dmg: '25', block: '—', hit: '+3a', ch: '', notes: 'Parry (mid/high punches AND kicks), frames 5~12. Spike.' },
+      ])}
+
+      <h3 class="subhead">Lows</h3>
+      ${fd('kunimitsu', [
+        { cmd: 'd+3', level: 'L', startup: 'i16~17', dmg: '11', block: '-14', hit: '-3', ch: '', notes: 'd+3,4,1 → attack throw string.' },
+        { cmd: 'd+3,4,1', level: 'L,h,t', startup: 'i16', dmg: '11,12,38', block: '-13', hit: 'throw', ch: '', notes: 'Auto attack throw. Recovers 12f faster OB.' },
+        { cmd: 'd+1+2', level: 'L', startup: 'i20', dmg: '17', block: '-14', hit: '+0', ch: '+15g', notes: 'Weapon low. High crush 6~.' },
+        { cmd: 'db+3', level: 'l', startup: 'i18', dmg: '8', block: '-15', hit: '-14', ch: '', notes: 'Chain starter. High crush 6~.' },
+        { cmd: 'db+3,3,3...', level: 'l chain', startup: 'i18', dmg: '8,7,7...', block: '-19', hit: '-7', ch: '', notes: 'JAILS from 1st block. High crush 1~. CH chains combo.' },
+        { cmd: 'db+3,3,3,3,3,4', level: 'l...m', startup: 'i18', dmg: '...,15', block: '-8', hit: '+23a (+13)', ch: '', notes: 'MID ender (ws4 anim) after any middle rep. BB.' },
+        { cmd: 'db+4', level: 'L', startup: 'i17', dmg: '13', block: '-12', hit: '+0', ch: '+8', notes: 'Standard low.' },
+        { cmd: 'u+2', level: 'L', startup: 'i35~36', dmg: '25', block: '-16', hit: '+6', ch: '+25a', notes: 'Big slow low. FC cancel with D. CH launches.' },
+        { cmd: 'SS.4', level: 'l', startup: 'i20~22 (+9 ss)', dmg: '16 (20 clean)', block: '-37', hit: '+4c (+13d clean)', ch: '', notes: 'Clean-hit KND. Stagger OB but -37 — hard read only.' },
+        { cmd: 'MUS.2', level: 'L', startup: 'i25', dmg: '25', block: '-18', hit: '+21d', ch: '+39a', notes: 'Glide low. High crush 11~43.' },
+      ])}
+
+      <h3 class="subhead">Movement Specials &amp; Crouch Dash</h3>
+      ${fd('kunimitsu', [
+        { cmd: 'f,d,df+2', level: 'M,h', startup: 'i14~15', dmg: '15,21', block: '-17', hit: '+73a (+57)', ch: '', props: ['tornado'], notes: 'i14 T! launcher. Bufferable. Chip.' },
+        { cmd: 'qcf+1', level: 'sm,t', startup: 'i15~26', dmg: '10,28', block: '-13', hit: 'throw', ch: '', notes: 'Attack throw stab. F version side-switches.' },
+        { cmd: 'qcf+2', level: 'M', startup: 'i13~14', dmg: '24', block: '-12c', hit: '+8a', ch: '', notes: 'Fast mid spike BB. Bufferable. Chip.' },
+        { cmd: 'qcf+1+2', level: 'm', startup: 'i20~21', dmg: '25', block: '-9', hit: '+6a', ch: '', props: ['tornado'], notes: 'T! BB weapon. Chip.' },
+        { cmd: 'f,F+2', level: 'M', startup: 'i19~20', dmg: '18', block: '-12', hit: '+19a (+2)', ch: '+33a (+22)', props: ['tornado'], notes: 'Ranged T! mid. CH launch.' },
+        { cmd: 'f,F+4,2', level: 'm,h', startup: 'i9~11', dmg: '11,23', block: '-17', hit: '+10c', ch: '', notes: 'i9 knee! Jails. Forces tech roll. Spike.' },
+        { cmd: 'WR+2', level: 'h,t', startup: 'i15~17', dmg: '20,20', block: '+6', hit: 'throw', ch: '', notes: '+6 OB attack throw. Side switch. Chip.' },
+        { cmd: 'f,f,F+3', level: 'm', startup: 'i23~27', dmg: '30', block: '+3~+7', hit: '+18c', ch: '', notes: 'PLUS running mid. BB. Forces tech roll.' },
+        { cmd: 'ub+3+4', level: 'm,t', startup: 'i19', dmg: '15,7,13', block: '-17', hit: '+31a (+26)', ch: '', props: ['tornado'], notes: 'T! attack throw.' },
+        { cmd: 'u+3+4', level: 'M,M', startup: 'i39~42', dmg: '10,12', block: '+1c', hit: '+24a', ch: '', notes: 'INVISIBLE frames 12~29 (still hittable). Spike. +1c OB.' },
+        { cmd: 'uf+2', level: 'M,M', startup: 'i17', dmg: '9,20', block: '-14~-12', hit: '+11a', ch: '', props: ['floorbreak'], notes: 'Floor break weapon.' },
+        { cmd: 'uf+3', level: 'm,m', startup: 'i15~16', dmg: '13,20', block: '-13', hit: '+25a (+18)', ch: '', notes: 'Launcher (2nd hit on hit/block only).' },
+        { cmd: 'd+3+4', level: 'M', startup: 'i20~23', dmg: '22', block: '-13', hit: '+12a (-5)', ch: '', props: ['powercrush'], notes: 'PC 7~19. Absorption: +2 bonus hits, 28 dmg, reversal break.' },
+        { cmd: 'b+3,4', level: 'M,M', startup: 'i21', dmg: '10,23', block: '-20', hit: '+9a (+2)', ch: '', notes: 'Floor-break low-profile mids. -20 risky.' },
+      ])}
+
+      <h3 class="subhead">SET (Setsunagake) Stance</h3>
+      ${fd('kunimitsu', [
+        { cmd: 'SET.1', level: 'h', startup: 'i10~11', dmg: '8', block: '-1', hit: '+8', ch: '', notes: 'i10 elbow from stance.' },
+        { cmd: 'SET.1,2', level: 'h,h', startup: 'i10', dmg: '8,13', block: '-6', hit: '+8', ch: '', notes: 'Jail option. BT with B.' },
+        { cmd: 'SET.1,2,1', level: 'h,h,M', startup: 'i10', dmg: '8,13,18', block: '-11', hit: '+15a (-2)', ch: '', props: ['tornado'], notes: 'T! BB ender.' },
+        { cmd: 'SET.1,2,3', level: 'h,h,M', startup: 'i10', dmg: '8,13,23', block: '-4', hit: '+25d', ch: '', props: ['floorbreak'], notes: 'Floor break ender, only -4.' },
+        { cmd: 'SET.1,2,4', level: 'h,h,m', startup: 'i10', dmg: '8,13,23', block: '+3', hit: '+5a', ch: '', notes: 'PLUS spike ender.' },
+        { cmd: 'CH.SET.2', level: 'm,t', startup: 'i12', dmg: '20,10', block: '—', hit: '+55a (+48)', ch: '', props: ['tornado'], notes: 'Souenzan — CH attack-throw instant tornado.' },
+      ])}
+
+      <h3 class="subhead">KAT (Katon) Stance</h3>
+      ${fd('kunimitsu', [
+        { cmd: 'KAT.1', level: 'h', startup: 'i11', dmg: '12', block: '-7', hit: '+4', ch: '', notes: 'Good left tracking.' },
+        { cmd: 'KAT.1,2', level: 'h,m', startup: 'i11', dmg: '12,20', block: '-9', hit: '+9g', ch: '', props: ['heat'], notes: 'HE. Heat dash +5. FC cancel with D.' },
+        { cmd: 'KAT.2', level: 'm', startup: 'i23~24', dmg: '21', block: '+5', hit: '+20d', ch: '+80a (+60)', notes: 'PLUS-on-block spike. CH MONSTER (+80a). FC with D.' },
+        { cmd: 'KAT.3', level: 'M', startup: 'i18~25', dmg: '8', block: '-12~-5', hit: '+2c~+9c', ch: '', props: ['floorbreak'], notes: 'EVASIVE — hops mids and some highs.' },
+        { cmd: 'KAT.3,2', level: 'M,M', startup: 'i18', dmg: '8,8', block: '-16', hit: '+34a (+24)', ch: '', notes: 'Launcher ender. Steel pedal.' },
+        { cmd: 'KAT.4,2', level: 'L,h', startup: 'i22', dmg: '16,23', block: '-9', hit: '+15a (+6)', ch: '', notes: 'Low into tailspin high. BB.' },
+        { cmd: 'KAT.1+2', level: 'h!', startup: 'i24~36', dmg: '20', block: '—', hit: '+0d~+12d', ch: '', notes: 'UNBLOCKABLE high.' },
+        { cmd: 'KAT.U', level: '', startup: '', dmg: '', block: '', hit: '', ch: '', notes: 'Teleport upward, lands in place. Low crush 5~19.' },
+      ])}
+
+      <h3 class="subhead">BT (Backturn) Kit</h3>
+      ${fd('kunimitsu', [
+        { cmd: 'BT.1', level: 'h', startup: 'i11', dmg: '10', block: '-8', hit: '+8', ch: '', notes: 'i11 BT elbow.' },
+        { cmd: 'BT.1,4', level: 'h,h', startup: 'i11', dmg: '10,20', block: '+3', hit: '+15c', ch: '', props: ['heat'], notes: 'HE — PLUS on block, forces tech roll.' },
+        { cmd: 'BT.1,2,1', level: 'h,m,M', startup: 'i11', dmg: '10,14,18', block: '-11', hit: '+15a (-2)', ch: '', props: ['tornado'], notes: 'T! ender.' },
+        { cmd: 'BT.2', level: 'h,t', startup: 'i19~20', dmg: '10,20', block: '-7', hit: 'throw', ch: '', props: ['powercrush'], notes: 'PC 7~18 + attack throw.' },
+        { cmd: 'BT.4', level: 'h', startup: 'i16~17', dmg: '20', block: '+6', hit: '+35d', ch: '', props: ['homing'], notes: '+6 OB homing tailspin. SET with F. Chip.' },
+        { cmd: 'BT.f+1+2', level: 'm', startup: 'i16~17', dmg: '21', block: '-13', hit: '+54a', ch: '', props: ['tornado'], notes: 'T! launcher from BT.' },
+        { cmd: 'BT.d+2', level: 'L', startup: 'i17~18', dmg: '20', block: '-13', hit: '+4', ch: '+8d', props: ['floorbreak'], notes: 'BT low. FC recover with D.' },
+        { cmd: 'BT.3+4', level: 'm!', startup: 'i19~20', dmg: '25', block: '—', hit: '+3a', ch: '', notes: 'Parry frames 5~18. Spike.' },
+      ])}
+
+      <h3 class="subhead">Heat, Rage &amp; Throws</h3>
+      ${fd('kunimitsu', [
+        { cmd: 'H.2+3', level: 'm,t', startup: 'i14~15', dmg: '50', block: '+3', hit: '-5d', ch: '', notes: 'Heat Smash — i14, +3 OB, BB, reversal break.' },
+        { cmd: 'H.db+1+2', level: 'M,M', startup: 'i18~19', dmg: '10,15', block: '-9', hit: '+59a (+43)', ch: '', props: ['heat', 'tornado'], notes: 'INSTANT TORNADO on NH. Costs 600F heat.' },
+        { cmd: 'H.u+1+2', level: 'm,m,m', startup: 'i16', dmg: '8,10,20', block: '+5', hit: '+25a (+1)', ch: '', props: ['heat'], notes: '+5 OB. BB. Costs 240F heat.' },
+        { cmd: 'H.KAT.d+1+2', level: 'L,m,m', startup: 'i20', dmg: '8,8,14', block: '-14', hit: '+23a (+5)', ch: '', props: ['heat'], notes: 'Fire-breath low-mid-mid. High crush. Costs 600F.' },
+        { cmd: 'R.df+1+2', level: 'm,t', startup: 'i20', dmg: '55+', block: '-18', hit: '+0d', ch: '', props: ['powercrush'], notes: 'Rage Art.' },
+        { cmd: 'Back.throw', level: 't', startup: 'i12', dmg: '50', block: '—', hit: 'unbreakable', ch: '', notes: 'Back throw — unbreakable.' },
+      ])}
+    `,
+
+    combos: () => `
+      <div class="tip-box" style="border-left-color: var(--accent-warm);">
+        <b>Combo meta is 10 days old.</b> The skeletons below are simple day-1 routes built from her tornado tools. For optimal damage, watch the embedded combo videos in the panel above — they're updated by the community as routes get refined.
+      </div>
+
+      <h3 class="subhead">Launcher Inventory</h3>
+      <p class="body">Confirmed launch starters: ${mv('df+2')} · ${mv('uf+3')} · ${mv('f,d,df+2')} (T! built in) · ${mv('ws3')} · KAT.${mv('3,2')} · BT.${mv('f+1+2')} (T!) · ${mv('ub+3+4')} (T!) · CH ${mv('b+2')} · CH KAT.${mv('2')} · ${mv('H.db+1+2')} (instant T!).</p>
+
+      <h3 class="subhead">Tornado Tools</h3>
+      <p class="body">${mv('f,F+2')} · ${mv('b+4,3')} · ${mv('df+1,3')} (CH) · ${mv('qcf+1+2')} · ${mv('1,1,1')} · ${mv('2,2,2,2,2')} · SET.${mv('1,2,1')} · BT.${mv('1,2,1')} · ${mv('uf+1')} (anti-air throw).</p>
+
+      <h3 class="subhead">Day-1 Starter Routes</h3>
+      <table class="data">
+        <thead><tr><th style="width: 24%">Starter</th><th>Route</th></tr></thead>
+        <tbody>
+          <tr><td>${mv('df+2')} / ${mv('ws3')}</td><td class="route">${mv('df+1')} → ${mv('b+4,3')} ${prop('tornado', 14)} → dash → ${mv('qcf+2')} <span class="sm">(simple, consistent)</span></td></tr>
+          <tr><td>${mv('f,d,df+2')}</td><td class="route">T! is built in → dash → ${mv('2,2,2,2')} → ender of choice <span class="sm">(huge base damage)</span></td></tr>
+          <tr><td>CH ${mv('b+2')}</td><td class="route">${mv('f,F+2')} ${prop('tornado', 14)} → dash → ${mv('qcf+1+2')}</td></tr>
+          <tr><td>${mv('H.db+1+2')}</td><td class="route">Instant T! → dash → ${mv('b+4,3')} → ${mv('qcf+2')}</td></tr>
+          <tr><td>CH KAT.${mv('2')}</td><td class="route">+80a — walk up, any juggle filler → ${mv('b+4,3')} ${prop('tornado', 14)} → ender</td></tr>
+        </tbody>
+      </table>
+
+      <h3 class="subhead">Combo Enders</h3>
+      <h4 class="minihead">Wall / carry</h4>
+      <p class="body">${cmd('kunimitsu','qcf+2')} (spike BB) · ${cmd('kunimitsu','f,F+2')} (BB) · ${cmd('kunimitsu','f,f,F+3')} (BB, forces roll)</p>
+      <h4 class="minihead">Floor break <span class="props-inline">${prop('floorbreak', 14)}</span></h4>
+      <p class="body">${cmd('kunimitsu','uf+2')} · ${cmd('kunimitsu','d+2')} · SET.${mv('1,2,3')} · BT.${mv('d+2')}</p>
+      <h4 class="minihead">Anti-air conversion</h4>
+      <p class="body">${cmd('kunimitsu','uf+1')} — tornado attack-throw that only hits airborne opponents. Free conversion when someone jumps or gets floated.</p>
+    `,
+
+    stances: () => `
+      <h3 class="subhead">The Stance Web: SET · KAT · MUS · BT</h3>
+      <p class="body">Kunimitsu's stances chain into each other constantly. SET is forward pressure, KAT is the fire-mixup hub, MUS is the aerial glide, and her BT kit is deep enough to be a stance of its own.</p>
+
+      <h3 class="subhead">SET (Setsunagake) — Forward Pressure</h3>
+      <div class="card">
+        <p class="body"><b>Enter:</b> ${mv('1+2')} (F), ${mv('f+4~F')} (+3 OB after the knee), ${mv('2,2,2~F')}, BT.${mv('1,3~F')}, BT.${mv('4~F')}.</p>
+        <table class="data compact">
+          <tr><td>${cmd('kunimitsu','SET.1')}</td><td>i10 elbow — fastest stance check</td></tr>
+          <tr><td>${cmd('kunimitsu','SET.1,2,4')}</td><td>+3 OB spike ender</td></tr>
+          <tr><td>${cmd('kunimitsu','SET.1,2,3')}</td><td>Floor break, only -4</td></tr>
+          <tr><td>${cmd('kunimitsu','CH.SET.2')}</td><td>Souenzan — CH attack-throw instant T! (+55a)</td></tr>
+        </table>
+        <div class="tip-box"><b>SET logic:</b> i10 elbow means mashing into SET loses. The CH.SET.2 conversion punishes anyone challenging the stance with slow buttons.</div>
+      </div>
+
+      <h3 class="subhead">KAT (Katon) — Fire Mixup Hub</h3>
+      <div class="card">
+        <p class="body"><b>Enter:</b> ${mv('1,1~1+2')}, BT.${mv('1,2~1+2')}.</p>
+        <table class="data compact">
+          <tr><td>${cmd('kunimitsu','KAT.1,2')}</td><td>HE with left tracking</td></tr>
+          <tr><td>${cmd('kunimitsu','KAT.2')}</td><td>+5 OB spike, +80a CH — the scariest single button</td></tr>
+          <tr><td>${cmd('kunimitsu','KAT.3')}</td><td>Evasive hop (over mids!) → KAT.3,2 launcher</td></tr>
+          <tr><td>${cmd('kunimitsu','KAT.4,2')}</td><td>Low → tailspin high</td></tr>
+          <tr><td>${cmd('kunimitsu','KAT.1+2')}</td><td>Unblockable high</td></tr>
+          <tr><td>${cmd('kunimitsu','KAT.U')}</td><td>Vertical teleport (low crush)</td></tr>
+          <tr><td>${cmd('kunimitsu','H.KAT.d+1+2')}</td><td>Heat fire-breath L,m,m</td></tr>
+        </table>
+      </div>
+
+      <h3 class="subhead">MUS (Musasabi) — Glide</h3>
+      <div class="card">
+        <p class="body"><b>Enter:</b> via ${mv('uf+3+4')} jump (~35f) into glide. Evasive, can side-switch mid-flight.</p>
+        <table class="data compact">
+          <tr><td>${cmd('kunimitsu','MUS.2')}</td><td>Glide low (25 dmg, high crush, CH +39a)</td></tr>
+          <tr><td>${cmd('kunimitsu','MUS.4')}</td><td>Mid with massive pushback — near-unpunishable without walls</td></tr>
+          <tr><td>${cmd('kunimitsu','MUS.3+4')}</td><td>Evasive jump, side-switch</td></tr>
+        </table>
+        <div class="warn-box"><b>Use sparingly:</b> MUS is a momentum/oki gimmick. Committing to glide in neutral against grounded opponents who anti-air is donating launches.</div>
+      </div>
+
+      <h3 class="subhead">BT (Backturn) — Her Real Second Stance</h3>
+      <div class="card">
+        <p class="body"><b>Enter:</b> ${mv('1+2~B')}, ${mv('1,2,2~B')}, ${mv('4,2')}, ${mv('df+3+4')}, SET.${mv('1,2~B')}, ${mv('f+3+4')} (-11 transition).</p>
+        <table class="data compact">
+          <tr><td>${cmd('kunimitsu','BT.1,4')}</td><td>+3 OB heat engager</td></tr>
+          <tr><td>${cmd('kunimitsu','BT.4')}</td><td>+6 OB homing tailspin → SET</td></tr>
+          <tr><td>${cmd('kunimitsu','BT.2')}</td><td>Power crush attack throw</td></tr>
+          <tr><td>${cmd('kunimitsu','BT.f+1+2')}</td><td>Tornado launcher</td></tr>
+          <tr><td>${cmd('kunimitsu','BT.d+2')}</td><td>Low with FC recovery</td></tr>
+          <tr><td>${cmd('kunimitsu','BT.3+4')}</td><td>Punch+kick parry (frames 5~18)</td></tr>
+        </table>
+        <div class="tip-box"><b>BT loop:</b> ${mv('BT.4')} (+6 OB, homing) → SET via F → SET.1 i10 elbow. This is her cleanest pressure circuit and it disciplines steppers.</div>
+      </div>
+    `,
+
+    pressure: () => `
+      <h3 class="subhead">Plus-Frame Pressure</h3>
+      <p class="body">For a "low damage" character she has a surprising number of plus-on-block tools — her gameplan is chaining them until the opponent cracks.</p>
+      ${fd('kunimitsu', [
+        { cmd: 'b+1,1,1,1,1', level: 'h×5', startup: 'i17', dmg: '8~14', block: '+5', hit: '+6', ch: '+11', notes: 'The jail chain. Stop at any rep, stay +5. Highs — mix with mids.' },
+        { cmd: 'd+1', level: 'm', startup: 'i19', dmg: '23', block: '+3', hit: '+6', ch: '+13c', notes: 'Honest plus mid spike.' },
+        { cmd: 'WR+2', level: 'h,t', startup: 'i15', dmg: '20,20', block: '+6', hit: 'throw', ch: '', notes: '+6 OB attack throw approach.' },
+        { cmd: 'f,f,F+3', level: 'm', startup: 'i23', dmg: '30', block: '+3~+7', hit: '+18c', ch: '', notes: 'Plus running mid. The WR+2 mixup partner.' },
+        { cmd: 'BT.4', level: 'h', startup: 'i16', dmg: '20', block: '+6', hit: '+35d', ch: '', props: ['homing'], notes: '+6 OB homing from BT.' },
+        { cmd: 'BT.1,4', level: 'h,h', startup: 'i11', dmg: '10,20', block: '+3', hit: '+15c', ch: '', props: ['heat'], notes: '+3 OB HE from BT.' },
+        { cmd: 'KAT.2', level: 'm', startup: 'i23', dmg: '21', block: '+5', hit: '+20d', ch: '+80a', notes: '+5 OB and a CH nuke in one button.' },
+        { cmd: '1,1,4', level: 'h,m,m', startup: 'i10', dmg: '5,12,23', block: '+3', hit: '+5a', ch: '', notes: 'Plus spike string ender.' },
+        { cmd: 'SET.1,2,4', level: 'h,h,m', startup: 'i10', dmg: '8,13,23', block: '+3', hit: '+5a', ch: '', notes: 'Plus spike from SET.' },
+        { cmd: 'H.u+1+2', level: 'm,m,m', startup: 'i16', dmg: '8,10,20', block: '+5', hit: '+25a (+1)', ch: '', props: ['heat'], notes: '+5 OB heat pressure.' },
+      ])}
+
+      <h3 class="subhead">Heat Strategy</h3>
+      <ul class="body" style="margin: 10px 0 14px 20px; line-height: 1.7;">
+        <li>Engage via ${mv('f+1+2')} (whiff punish), ${mv('ws2,1')} (i13 punish), ${mv('BT.1,4')} / KAT.${mv('1,2')} (pressure)</li>
+        <li>${mv('H.db+1+2')} instant-tornado is the big heat spend — full combo from a single mid</li>
+        <li>i14 Heat Smash at <b>+3 OB</b> is a genuine pressure tool, not just a cash-out</li>
+        <li>Heat moves consume heat <b>time</b> (240–600F) — budget two big spends per heat</li>
+      </ul>
+
+      <h3 class="subhead">The Run-Up 50/50</h3>
+      <div class="card">
+        <p class="body">${mv('WR+2')} (high attack throw, +6 OB) vs ${mv('f,f,F+3')} (mid 30 dmg, +3~+7 OB). Duck one, eat the other; block either and she's <b>still plus</b>. This is her best opener against turtles — the only universal answer is sidestep, which is why you guard it with ${mv('3')} / ${mv('BT.4')} homing.</p>
+      </div>
+    `,
+
+    frametraps: () => `
+      <h3 class="subhead">Frame Traps</h3>
+      <div class="card">
+        <h4 class="minihead">${mv('b+1,1')} (stop at +5 OB) → ${mv('df+4')} i12 mid</h4>
+        <p class="body sm">+5 means their i10 jab loses to your i12 mid by frame math (12-5=7 effective). Catches mash cleanly.</p>
+      </div>
+      <div class="card">
+        <h4 class="minihead">${mv('d+1')} (+3 OB) → ${mv('df+1')} / ${mv('f,d,df+2')}</h4>
+        <p class="body sm">Plus mid into mid check, or hard CH read with the i14 launcher.</p>
+      </div>
+      <div class="card">
+        <h4 class="minihead">${mv('WR+2')} blocked (+6) → ${mv('df+4')} · throw</h4>
+        <p class="body sm">+6 OB is a full mixup: i12 mid stuffs everything, throw beats passive block.</p>
+      </div>
+      <div class="card">
+        <h4 class="minihead">KAT.${mv('2')} blocked (+5) → KAT re-entry pressure or ${mv('1,1~1+2')} loop</h4>
+        <p class="body sm">+5 from a spike mid. Anyone pressing eats the next KAT.2 at +80a CH.</p>
+      </div>
+      <div class="card">
+        <h4 class="minihead">${mv('BT.4')} (+6 OB) → SET.${mv('1')} i10 elbow</h4>
+        <p class="body sm">The BT→SET circuit. i10 from +6 is functionally uninterruptible.</p>
+      </div>
+
+      <h3 class="subhead">Knowledge Checks</h3>
+      <div class="card">
+        <h4 class="minihead">${mv('db+3,3,3...')} chain jails</h4>
+        <p class="body sm">Most opponents try to step or jab between reps — they can't, it jails from the first block. They must low parry or eat the mid ender ${mv('db+3...4')} (-8 only).</p>
+      </div>
+      <div class="card">
+        <h4 class="minihead">${mv('u+3+4')} invisibility</h4>
+        <p class="body sm">Opponents panic when you vanish. It's i39 and hittable — but day-1 nobody knows that. Okizeme gimmick gold.</p>
+      </div>
+      <div class="card">
+        <h4 class="minihead">KAT.${mv('3')} hops mids</h4>
+        <p class="body sm">Evasive from frame 1 (floating 1~4, low crush 5~26) — beats opponents who answer KAT with df+1 mashing, converts via KAT.3,2 launch.</p>
+      </div>
+      <div class="card">
+        <h4 class="minihead">${mv('b+1+3')} / BT.${mv('3+4')} parries catch punishes</h4>
+        <p class="body sm">Both parry mid AND high, punches AND kicks. Opponents who auto-pilot punishes into your -9s eat the spike.</p>
+      </div>
+    `,
+
+    matchups: () => `
+      <div class="tip-box" style="border-left-color: var(--accent-warm);"><b>Matchup data is forming.</b> She's 10 days old — these are first-principles notes from her toolkit, not established matchup theory. Re-lab these as the meta settles.</div>
+
+      <h3 class="subhead">Universal Anti-Kunimitsu Counterplay (know what they'll try)</h3>
+      <div class="matchups">
+        ${[
+          ['vs Steppers (Lili, Leroy)','Your kit is linear — they WILL step right. Discipline early with ${3} and ${BT.4} homing or lose neutral entirely.'],
+          ['vs Keepout (Dragunov, Bryan)','Your damage is volume-based; theirs is per-hit. Use ${WR+2}/${f,f,F+3} plus-frame approaches, never glide in raw.'],
+          ['vs Mishimas','Their punishment is elite and your strings are -12 to -19. Stop strings early, lean on jail chains and plus enders.'],
+          ['vs Grapplers (King)','Your speed wins neutral. ${KAT.3} hops shoulder mids. Break practice still mandatory.'],
+          ['vs Parry characters (Leroy, Jun)','Weapon moves cannot be punch-parried in many cases but kicks can — check per matchup which strings are parryable.'],
+          ['vs Rushdown (Nina, Azucena)','${d+3+4} PC and ${b+1+3} parry are your release valves. BT.${3+4} parry covers turn-stealing.'],
+          ['Mirror / vs other DLC','Lab together — nobody knows these matchups yet. First player to learn the -frames wins.'],
+        ].map(([char, tip]) => `<div class="m-row"><span class="char">${char}</span><span class="tip">${tip.replace(/\$\{([^}]+)\}/g, (_, n) => mv(n))}</span></div>`).join('')}
+      </div>
+    `,
+
+    defense_vs: () => `
+      <h3 class="subhead">Playing Against Kunimitsu</h3>
+      <p class="body">She's new, which means knowledge is your weapon. These are the holes in her kit straight from the frame data.</p>
+
+      <div class="card">
+        <h4 class="minihead">Step RIGHT</h4>
+        <p class="body">Early consensus and the frame data agree: her kit is linear and weakest to her right. Only ${mv('3')}, ${mv('BT.4')}, and KAT.1's left tracking answer movement. If she's not showing homing, step everything.</p>
+      </div>
+      <div class="card">
+        <h4 class="minihead">Duck the throws</h4>
+        <p class="body">${mv('WR+2')} is a HIGH attack throw — duck it for a full crouch launch. ${mv('b+1,1...')} jail chain is ALL highs — duck any rep and launch. Her plus pressure collapses against disciplined ducking.</p>
+      </div>
+      <div class="card">
+        <h4 class="minihead">Low parry the db+3 chain</h4>
+        <p class="body">It jails so you can't jab out — but every rep is a parryable low. One low parry = full combo. The only mind game is the -8 mid ender; watch for the ws4 animation.</p>
+      </div>
+      <div class="card">
+        <h4 class="minihead">She's -37 on SS.4</h4>
+        <p class="body">The stagger animation looks scary. It is not. <b>-37.</b> Launch every blocked one.</p>
+      </div>
+      <div class="card">
+        <h4 class="minihead">Hit her out of invisibility</h4>
+        <p class="body">${mv('u+3+4')} makes her invisible but <b>fully hittable</b> frames 12–29. Throw any mid at where she was standing.</p>
+      </div>
+      <div class="card">
+        <h4 class="minihead">Punish the launchers</h4>
+        <p class="body">${mv('df+2')} is -14 (rare for a df+2 — punish it!), ${mv('f,d,df+2')} is -17, KAT.${mv('3,2')} is -16, ${mv('b+4,3')} is -16, ${mv('ub+3+4')} is -17. She bleeds launch frames when she goes for damage.</p>
+      </div>
+
+      <h3 class="subhead">Defensive Summary</h3>
+      <div class="do-dont">
+        <div class="do"><h4>When facing Kunimitsu, DO</h4><ul>
+          <li>Step right relentlessly until she proves homing</li>
+          <li>Duck WR+2 and the b+1 chain — both are highs</li>
+          <li>Low parry the db+3 mash chain</li>
+          <li>Launch SS.4 (-37) and df+2 (-14) on block</li>
+          <li>Hit her during invisibility — she's not intangible</li>
+          <li>Respect KAT.2 (+5 OB, +80a CH) — do not mash at it</li>
+        </ul></div>
+        <div class="dont"><h4>When facing Kunimitsu, DON'T</h4><ul>
+          <li>Jab into SET — her i10 elbow trades or beats you</li>
+          <li>Mash mids at KAT — KAT.3 hops them</li>
+          <li>Auto-pilot punishes — b+1+3/BT.3+4 parry both punches and kicks</li>
+          <li>Panic at the fire/teleport/invisible gimmicks — block first, they're all reactable</li>
+          <li>Let her run heat freely — the instant-tornado mid is her only big-damage tool</li>
+        </ul></div>
+      </div>
+    `,
+
+    dos_donts: () => `
+      <h3 class="subhead">Day-1 Kunimitsu Do's and Don'ts</h3>
+      <div class="do-dont">
+        <div class="do"><h4>DO</h4><ul>
+          <li>Drill ${mv('f,d,df+2')} until the i14 launch is automatic — it carries her punish game</li>
+          <li>Learn the BT→SET pressure circuit (${mv('BT.4')} → SET.${mv('1')})</li>
+          <li>Use homing (${mv('3')}, ${mv('BT.4')}) the moment opponents start stepping</li>
+          <li>Stop the b+1 chain at +5 — discipline over greed</li>
+          <li>Convert every CH ${mv('df+1,3')} and KAT.${mv('2')} — that's where her damage lives</li>
+          <li>Watch the embedded combo videos weekly — routes are still being optimized</li>
+          <li>Budget heat: one ${mv('H.db+1+2')} + smash per bar</li>
+        </ul></div>
+        <div class="dont"><h4>DON'T</h4><ul>
+          <li>Finish strings on block — almost all enders are -11 to -19</li>
+          <li>Press the 6th hit of ${mv('b+1')} chain (-72, the worst frame in her kit)</li>
+          <li>Raw-glide (MUS) in neutral — it's an oki tool</li>
+          <li>Spam ${mv('SS.4')} — -37 on block</li>
+          <li>Treat ${mv('df+2')} as a poke — it's -14, punish-only</li>
+          <li>Pick her expecting Yoshimitsu — shared school, totally different machine</li>
+          <li>Trust 10-day-old tier placements — lab her yourself</li>
+        </ul></div>
+      </div>
+
+      <h3 class="subhead">4-Week Day-1 Development Plan</h3>
+      <table class="data">
+        <thead><tr><th>Week</th><th>Focus</th></tr></thead>
+        <tbody>
+          <tr><td>Week 1</td><td>Punishers cold (i10/i12/i14 ${mv('f,d,df+2')}/WS). One starter combo per launcher.</td></tr>
+          <tr><td>Week 2</td><td>BT kit: entries, ${mv('BT.4')} → SET circuit, ${mv('BT.1,4')} HE. KAT entries + KAT.2 spacing.</td></tr>
+          <tr><td>Week 3</td><td>Plus-frame web: ${mv('d+1')}, ${mv('WR+2')}/${mv('f,f,F+3')} run mix, jail chains, throw game.</td></tr>
+          <tr><td>Week 4</td><td>Heat optimization + ranked. Re-watch updated combo videos — routes will have changed.</td></tr>
         </tbody>
       </table>
     `,
