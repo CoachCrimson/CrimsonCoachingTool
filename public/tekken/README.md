@@ -59,3 +59,7 @@ All content is data-driven. To add a matchup, edit the matchup array in `chars.j
 - Frame data from [TekkenDocs](https://tekkendocs.com).
 - Video links via [okizeme.gg](https://okizeme.gg).
 - Not affiliated with Bandai Namco.
+
+## Character Portraits
+
+Drop PNGs into the `images/` folder named: `jun.png`, `nina.png`, `miary.png`, `lili.png`, `lidia.png`, `kunimitsu.png`. They show automatically on home tiles and character pages. Missing files fall back to a stylized initial — nothing breaks.

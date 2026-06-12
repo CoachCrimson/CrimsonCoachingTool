@@ -6,13 +6,13 @@
 // Lili: DewGlider (TekkenDocs, Jul 2025, v2.03)
 // All move fields are arrow functions so notation toggles re-render.
 //
-// PORTRAITS: each character has an `image` field. Empty ('') uses a
-// stylized fallback with character accent color. To add a real photo,
-// set image: 'https://...' to a hosted URL. Recommended sources:
-//   - https://tekken.fandom.com/wiki/<Character>/Gallery (right-click
-//     → Copy image address on any T8 render)
-//   - imgur, your own CDN, etc.
-//   - Aspect: portrait, head + upper torso visible
+// PORTRAITS: each character's `image` points to images/<name>.png in
+// the repo (jun.png, nina.png, miary.png, lili.png, lidia.png,
+// kunimitsu.png). Drop a PNG with the matching name into the images/
+// folder and it appears on the home tile + character page.
+// If a file is missing, a stylized fallback (accent-colored initial)
+// renders automatically — nothing breaks.
+// Recommended: portrait orientation, head + upper torso visible.
 // ============================================================
 
 const CHARACTERS = {
@@ -25,7 +25,7 @@ const CHARACTERS = {
     subtitle: 'The Kazama Bloodline · Counter-Hit Fundamentalist',
     difficulty: 'Medium',
     okizeme: 'jun',
-    image: '',
+    image: 'images/jun.png',
     videos: [
       { id: '9eM1c2Wdpr0', title: "Jun Kazama Beginner's Guide", author: 'sonic_sol' },
     ],
@@ -667,7 +667,7 @@ const CHARACTERS = {
     subtitle: 'The Silent Assassin · No Stances · Execution Expert',
     difficulty: 'Expert',
     okizeme: 'nina',
-    image: '',
+    image: 'images/nina.png',
     guideLinks: [
       { url: 'https://tekkendocs.com/t8/nina/guide', title: "Lalo's Season 3 Nina Guide", source: 'TekkenDocs' },
       { url: 'https://okizeme.gg/database/nina', title: 'Full move videos', source: 'okizeme.gg' },
@@ -1308,7 +1308,7 @@ const CHARACTERS = {
     subtitle: 'The Fighting God Reborn · Morengy Rushdown',
     difficulty: 'Easy–Medium',
     okizeme: 'miary-zo',
-    image: '',
+    image: 'images/miary.png',
     guideLinks: [
       { url: 'https://tekkendocs.com/t8/miary-zo/guide', title: 'Miary Zo Guide', source: 'TekkenDocs' },
       { url: 'https://okizeme.gg/database/miary-zo', title: 'Full move videos', source: 'okizeme.gg' },
@@ -2105,7 +2105,7 @@ const CHARACTERS = {
     subtitle: 'The Noble Ballerina · Feisty Rabbit & Dew Glide',
     difficulty: 'Easy–Medium',
     okizeme: 'lili',
-    image: '',
+    image: 'images/lili.png',
     guideLinks: [
       { url: 'https://tekkendocs.com/t8/lili/guide', title: "DewGlider's Lili Guide", source: 'TekkenDocs' },
       { url: 'https://okizeme.gg/database/lili', title: 'Full move videos', source: 'okizeme.gg' },
@@ -2778,7 +2778,7 @@ const CHARACTERS = {
     subtitle: 'The Polish Prime Minister · Four-Stance Karate Specialist',
     difficulty: 'Hard',
     okizeme: 'lidia',
-    image: '',
+    image: 'images/lidia.png',
     videos: [
       { id: 'G-z0xozVIFw', title: 'Lidia Guide', author: 'Pling × DashFight' },
       { id: 'ZNcxR8xgCOM', title: 'Teach Me Lidia ft. Leemishima', author: 'Leemishima' },
@@ -3409,7 +3409,7 @@ const CHARACTERS = {
     subtitle: 'The Phantom Thief · Manji Ninjutsu & Tantojutsu',
     difficulty: 'Hard',
     okizeme: 'kunimitsu',
-    image: '',
+    image: 'images/kunimitsu.png',
     videos: [
       { id: 'uL2cfy23FkU', title: 'Kunimitsu Combo Guide', author: 'Community' },
       { id: '_7--ah-IsqE', title: 'Beginner Combos & BnBs', author: 'Community' },
